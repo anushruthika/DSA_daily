@@ -1,0 +1,42 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        final_s=s[0]
+        n=len(s)
+        w=1
+        i=0
+        while (i<n-w):
+            j=i+w
+            while(j<n):
+                x=s[i:j+1]
+
+                k,l = 0, len(x) - 1 
+                flag=1
+                while k < l:
+                    if x[k] != x[l]:
+                        flag=0
+                        break
+                    k += 1
+                    l -= 1
+                if flag==1:
+                    w,final_s=len(x),x
+                j=j+1
+            i+=1
+        return final_s 
+
+
+        
+        
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        final_s=s[0]
+        n=len(s)
+        w=1
+        i=0
+        while (i<n-w):
+            j=i+w
+            while(j<n):
+                if s[i:j+1]==s[i:j+1][::-1]:
+                    w,final_s=len(s[i:j+1]),s[i:j+1]
+                j=j+1
+            i+=1
+        return final_s 
