@@ -26,39 +26,77 @@ class LinkedList:
     # inserts value before target value
     def ins_value_before_value(self,target,value):
         cur = self.head
-        while (cur.next.data!=target):
+        flag=0
+        if cur.data == target :
+            self.ins_beg_data(value)
+            return
+        while (cur.next!=None):
+            if (cur.next.data==target):
+                flag =1
+                break
             cur=cur.next
-        node = cur.next
-        cur.next = Node(value)
-        cur.next.next= node
+        if flag ==1 :
+            node = cur.next
+            cur.next = Node(value)
+            cur.next.next= node
+        else:
+            print("Value Not found")
     # inserts value after target value
     def ins_value_after_value(self,target,value):
         cur = self.head
-        while (cur.data!=target):
+        flag=0
+        while (cur!=None):
+            if (cur.data==target):
+                flag =1
+                break
             cur=cur.next
-        node = cur.next
-        cur.next = Node(value)
-        cur.next.next= node
+        if flag ==1 :
+            node = cur.next
+            cur.next = Node(value)
+            cur.next.next= node
+        else:
+            print("Value Not found")
     # inserts value before target position
     def ins_value_before_pos(self,target,value):
         cur = self.head
+        if target ==0:
+            self.ins_beg_data(value)
+            return
         pos=1
-        while (pos!=target):
+        flag=0
+        while (cur.next):
+            if pos==target:
+                flag = 1
+                break
             cur=cur.next
             pos+=1
-        node = cur.next
-        cur.next = Node(value)
-        cur.next.next= node
+        if flag ==1:
+            node = cur.next
+            cur.next = Node(value)
+            cur.next.next= node
+        else:
+            print("Value Not found")
     # inserts value after target position
     def ins_value_after_pos(self,target,value):
         cur = self.head
-        pos=0
-        while (pos!=target):
+        pos=1
+        flag=0
+        if target ==0 :
+            node = Node(value)
+            node.next = cur.next
+            cur.next = node
+            return
+        while (cur.next!=None):
+            if (pos==target):
+                flag=1
             cur=cur.next
             pos+=1
-        node = cur.next
-        cur.next = Node(value)
-        cur.next.next= node
+        if flag ==1:
+            node = cur.next
+            cur.next = Node(value)
+            cur.next.next= node
+        else:
+            print("Value not found")
     
     def display(self):
         cur = self.head
@@ -80,11 +118,11 @@ for i in range(5,10):
     l1.ins_end_data(i)
 l.display()
 l1.display()
-l.ins_value_before_value(20,30)
+l.ins_value_before_value(9,30)
 l.display()
-l.ins_value_after_value(20,31)
+l.ins_value_after_value(8,31)
 l.display()
-l.ins_value_before_pos(0,15)
+l.ins_value_before_pos(11,15)
 l.display()
-l.ins_value_after_pos(2,16)
+l.ins_value_after_pos(0,16)
 l.display()
