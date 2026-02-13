@@ -6,6 +6,8 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+# similar to inorder approach but it happens at each level :- understand this line you will understand the whole concept
 class Solution:
     def __init__(self):
         self.res=[]
