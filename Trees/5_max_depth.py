@@ -24,15 +24,16 @@ class Solution:
 ### ITERATIVE APPROACH
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        queue = [root]
         level_count=0
-        while queue:
-            for i in range(0,len(queue)):
-                node = queue.pop(0)
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
-            level_count+=1
+        if root: 
+            queue = [root]
+            while queue:
+                for i in range(0,len(queue)):
+                    node = queue.pop(0)
+                    if node.left:
+                        queue.append(node.left)
+                    if node.right:
+                        queue.append(node.right)
+                level_count+=1
         return level_count
         
