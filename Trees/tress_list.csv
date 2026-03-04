@@ -1,10 +1,9 @@
-1,InOrder
-2,PreOrder
-3,PostOrder
-4,LevelOrder
-
-
-5,Iterative InOrder
-6,Iterative PreOrder
-7,Iterative PostOrder
-8,Iterative LevelOrder
+1,InOrder,94
+2,PreOrder,144
+3,PostOrder,145
+4,LevelOrder,102
+5,Max Depth of Tree,104
+6,Iterative InOrder
+7,Iterative PreOrder
+8,Iterative PostOrder
+9,Iterative LevelOrder
