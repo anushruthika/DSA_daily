@@ -25,3 +25,23 @@ class Solution:
                         queue.append(node.right)
                 self.res.append(l)
         return self.res
+### APPROACH : LEVEL COUNT INT TRACKER INSTEAD OF L LIST TRACKER
+class Solution:
+    def __init__(self):
+        self.res=[]
+
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        level_count=0
+        if root: 
+            queue = [root]
+            while queue:
+                self.res.append([])
+                for i in range(0,len(queue)):
+                    node = queue.pop(0)
+                    self.res[level_count].append(node.val)
+                    if node.left:
+                        queue.append(node.left)
+                    if node.right:
+                        queue.append(node.right)
+                level_count+=1       
+        return self.res
