@@ -1,4 +1,23 @@
 # https://www.naukri.com/code360/problems/childrensumproperty_790723
+# eg: 3 7 5 50 1 2 30
+#         50                            
+#        /  \
+#       7    2        => 
+#      / \  / \
+#     3  5 1  30
+
+#         50
+#        /  \
+#      55    31        =>
+#      / \   / \
+#     50  5  1  30
+
+#       86
+#      /  \
+#    55    31
+#   /  \   / \
+# 50   5  1  30
+
 from os import *
 from sys import *
 from collections import *
