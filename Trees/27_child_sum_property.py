@@ -1,4 +1,6 @@
-# https://www.naukri.com/code360/problems/childrensumproperty_790723
+# 2 SUMS: 
+# 1. https://www.naukri.com/code360/problems/childrensumproperty_790723
+# 2. https://www.geeksforgeeks.org/problems/children-sum-parent/1
 # eg: 3 7 5 50 1 2 30
 #         50                            
 #        /  \
@@ -57,8 +59,43 @@ def changeTree(root):
     if root.left:
         tot += root.left.data
     if root.right:
-        tot += root.right.data
+        tot += root.right.data            
 
     if root.left or root.right:
         root.data = tot
     pass
+
+
+#########
+# APPROACH 2
+#########
+
+'''
+# Node Class:
+class Node:
+    def init(self,val):
+        self.data = val
+        self.left = None
+        self.right = None
+'''
+
+class Solution:
+    def isSumProperty(self, root):
+        if root:
+            if root.left == None and root.right == None:
+                return True
+            sum_ = 0
+            if root.left:
+                sum_+=root.left.data
+            if root.right:
+                sum_+=root.right.data
+            if sum_ == root.data:
+                cond = True
+                if root.left:
+                    l_h = self.isSumProperty(root.left)
+                    cond = cond and l_h
+                if root.right:
+                    r_h = self.isSumProperty(root.right)
+                    cond = cond and r_h
+                return cond
+            return False
