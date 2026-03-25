@@ -24,4 +24,21 @@ class Solution:
         res = []
         self.ino(root, res, res2)
         return res2
-        
+
+
+#129. Sum Root to Leaf Numbers
+class Solution:
+    def rec1(self,root,s,res):
+        if root:
+            s+=str(root.val)
+            if not root.left and not root.right :
+                res.append(s)
+            else:
+                self.rec1(root.left,s,res)
+                self.rec1(root.right,s,res)
+            s=s[:-2]
+    def sumNumbers(self, root: Optional[TreeNode]) -> int:
+        s=''
+        r=[]
+        self.rec1(root,s,r)
+        return sum(list(map(int,r)))
