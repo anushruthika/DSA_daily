@@ -1,49 +1,22 @@
-"""
-# Definition for a Node.
-class Node:
-    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
-        self.val = val
-        self.left = left
-        self.right = right
-        self.next = next
-"""
-
 # 116. Populating Next Right Pointers in Each Node
+# 117. Populating Next Right Pointers in Each Node II
 
 class Solution:
-    def dfs(self,root):
+    def dfs(self,root,level,prev):
         if root:
-            flag =0
-            if root.left:
-                if root.right:
-                    flag = 1
-                    root.left.next = root.right
-                elif root.next:
-                    if root.next.left:
-                        flag = 1
-                        root.left.next = root.next.left
-                    elif root.next.right:
-                        flag = 1
-                        root.left.next = root.next.right
-                if flag == 0:
-                    root.left.next = None
-            self.dfs(root.left)
-            flag =0 
-            if root.right:
-                if root.next:
-                    if root.next.right:
-                        flag = 1
-                        root.right.next = root.next.left
-                    elif root.next.right:
-                        flag =1
-                        root.right.next = root.next.right
-                if flag ==0:
-                    root.right.next = None
-
-            self.dfs(root.right)
-    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+            if level not in prev:
+                prev[level] = [root]
+            else:
+                prev[level][-1].next = root
+                prev[level].append(root)
+            self.dfs(root.left,level+1,prev)
+            self.dfs(root.right,level+1,prev)
+            prev[level][-1].next = None
+    def connect(self, root: 'Node') -> 'Node':
         if root:
             root.next=None
-            self.dfs(root)
+            prev={}
+            self.dfs(root,0,prev)
         return root
         
+
