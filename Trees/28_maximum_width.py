@@ -5,6 +5,10 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+# Time: O(n) => all nodes processed once
+# Space: O(n) => queue stores nodes level-wise
+
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         if root:
