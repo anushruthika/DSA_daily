@@ -5,6 +5,8 @@
 #         self.left = left
 #         self.right = right
 
+# Time: O(n), Space: O(n) (output) + O(h) stack (worst O(n), best O(log n))
+
 class Solution:
     def __init__(self):
         # Stores final postorder result (Left → Right → Root)
