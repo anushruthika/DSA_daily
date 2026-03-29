@@ -1,5 +1,9 @@
 # 102. Binary Tree Level Order Traversal
 
+# Time: O(n) => Each node is visited exactly once, 
+# Space: O(n) (output=self.res,Stores all n nodes as level list) + O(h) recursion stack (worst(skewed tree) 
+
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
