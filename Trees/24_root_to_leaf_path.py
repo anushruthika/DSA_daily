@@ -1,5 +1,7 @@
 # https://www.geeksforgeeks.org/problems/root-to-leaf-paths/1
 
+# Time: O(n * h) => each path copy takes O(h), done for nodes
+# Space: O(h) (worst O(n) => skewed Tree, best O(log n) => balanced tree) + O(n*h) output
 
 from typing import Optional
 from collections import deque
