@@ -1,12 +1,23 @@
 # 2 SUMS: 
 # 1. https://www.naukri.com/code360/problems/childrensumproperty_790723
 # 2. https://www.geeksforgeeks.org/problems/children-sum-parent/1
+
+# Time: O(n) => all nodes traversed once
+# Space: O(h) (worst O(n) => skewed Tree, best O(log n) => balanced tree)
+
+
 # eg: 3 7 5 50 1 2 30
 #         50                            
 #        /  \
 #       7    2        => 
 #      / \  / \
 #     3  5 1  30
+
+#         50                            
+#        /  \
+#       50    2        => 
+#      / \  / \
+#     50  5 1  30
 
 #         50
 #        /  \
