@@ -1,5 +1,8 @@
 # 2385. Amount of Time for Binary Tree to Be Infected
 
+# Time: O(n) => each node effectively processed once across height calls
+# Space: O(h) (worst O(n) => skewed Tree, best O(log n) => balanced tree) + O(n) path
+
 class Solution:
 
     def root_to_target_path(self, root, target, path):
