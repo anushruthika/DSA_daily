@@ -1,5 +1,7 @@
 # 199. Binary Tree Right Side View
 
+# Time: O(n) => all nodes traversed once
+# Space: O(n) => level storage + O(h) recursion stack (worst O(n), best O(log n))
 
 # Definition for a binary tree node.
 # class TreeNode:
