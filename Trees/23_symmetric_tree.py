@@ -1,5 +1,8 @@
 # 101. Symmetric Tree
 
+# Time: O(n) => all nodes traversed once
+# Space: O(h) (worst O(n) => skewed Tree, best O(log n) => balanced tree)
+
 class Solution:
     def isMirror(self,p,q):
         if p is None and q is None :
