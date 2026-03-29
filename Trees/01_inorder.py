@@ -1,5 +1,7 @@
 # 94. Binary Tree Inorder Traversal
 
+# Time: O(n), Space: O(n) (output) + O(h) recursion stack (worst O(n), best O(log n))
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
