@@ -3,7 +3,7 @@
 # Output: 3
 
 # Time: O(n) => Each node is visited exactly once, 
-# Space: O(n) (output=self.res,Stores all n nodes ) + O(h) recursion stack (worst(skewed tree)
+# Space: O(n) (output=self.res,Stores all n nodes ) + O(h) recursion stack (worst(skewed tree) O(n), best(balanced tree) O(log n))
 
 # Definition for a binary tree node.
 # class TreeNode:
