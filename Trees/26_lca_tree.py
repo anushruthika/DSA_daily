@@ -1,4 +1,7 @@
 # 236. Lowest Common Ancestor of a Binary Tree
+# Time: O(n) => all nodes traversed once
+# Space: O(h) (worst O(n) => skewed Tree, best O(log n) => balanced tree)
+
 
 # Definition for a binary tree node.
 # class TreeNode:
