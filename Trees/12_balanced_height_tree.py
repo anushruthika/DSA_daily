@@ -1,4 +1,6 @@
 # 110. Balanced Binary Tree
+# Time: O(n), Space: O(h) (worst O(n), best O(log n))
+
 
 # Definition for a binary tree node.
 # class TreeNode:
