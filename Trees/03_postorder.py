@@ -1,10 +1,7 @@
 # 145. Binary Tree Postorder Traversal
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+# Time: O(n) => Each node is visited exactly once, 
+# Space: O(n) (output=self.res,Stores all n nodes ) + O(h) recursion stack (worst(skewed tree) O(n), best(balanced tree) O(log n))
+
 class Solution:
     def __init__(self):
         self.res=[]
