@@ -1,15 +1,10 @@
 # 144. Binary Tree Preorder Traversal
+
+# Time: O(n), Space: O(n) (output) + O(h) stack (worst O(n), best O(log n))
+
 class Solution:
     def __init__(self):
         self.res=[]
-    # def preorder_rec(self,root,res):
-    #     if root:
-    #         res.append(root.val)
-    #     if root and root.left !=None:
-    #         self.preorder_rec(root.left,res)
-    #     if root and root.right !=None:
-    #         self.preorder_rec(root.right,res)
-
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         if root == None:
             return []
