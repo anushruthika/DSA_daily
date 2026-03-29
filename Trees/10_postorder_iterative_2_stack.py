@@ -1,5 +1,11 @@
 # 145. Binary Tree Postorder Traversal
 
+# Time: O(n): Each node (traversed only once)is pushed and popped a constant number of times.
+# Space: O(n)
+# explanation: Stack1 + Stack2 → store nodes → O(n)
+# Output (self.res) → O(n)
+
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
