@@ -1,11 +1,9 @@
 # 104.Maximum Depth of a binary Tree
 
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+# Time: O(n) => all nodes traversed once
+# Space: O(h) (worst O(n) => skewed Tree, best O(log n) => balanced tree)
+
+
 class Solution:
     def rec(self,root):
         if not root:
