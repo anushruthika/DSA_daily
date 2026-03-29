@@ -1,5 +1,8 @@
 # 863. All Nodes Distance K in Binary Tree
 
+# Time: O(n) => each node processed at most once
+# Space: O(h) (worst O(n) => skewed Tree, best O(log n) => balanced tree) + O(n) path + result
+
 from typing import List
 
 class Solution:
