@@ -1,3 +1,5 @@
+# 700. Search in a Binary Search Tree
+
 # Time: O(n) => may traverse all nodes
 # Space: O(h) (worst O(n) => skewed Tree, best O(log n) => balanced tree)
 
