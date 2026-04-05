@@ -1,3 +1,6 @@
+
+# 173. Binary Search Tree Iterator
+
 # Time: O(1) amortized per next() / hasNext() => each node is pushed and popped at most once (total O(n) over all operations)
 # Space: O(h) => stack stores path from root to current node (worst O(n), best O(log n))
 
