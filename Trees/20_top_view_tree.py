@@ -1,4 +1,6 @@
 ## geek for geeks: https://www.geeksforgeeks.org/problems/top-view-of-binary-tree/1
+# Time: O(n log n) => DFS O(n) + sorting columns & each column elements
+# Space: O(n) => dictionary + recursion stack O(h)
 
 '''
 class Node:
