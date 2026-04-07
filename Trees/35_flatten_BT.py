@@ -1,5 +1,8 @@
 # 114. Flatten Binary Tree to Linked List
 
+# Time: O(n) => DFS O(n) + rebuilding O(n)
+# Space: O(n) => O(h) recursion stack + O(n) list
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
