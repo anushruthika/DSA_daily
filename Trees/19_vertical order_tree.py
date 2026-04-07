@@ -1,4 +1,6 @@
 # 987. Vertical Order Traversal of a Binary Tree
+# Time: O(n log n) => DFS O(n) + sorting columns & each column elements
+# Space: O(n) => dictionary + recursion stack O(h)
 
 class Solution:
 
