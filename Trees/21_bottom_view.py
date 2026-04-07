@@ -1,3 +1,5 @@
+# Time: O(n log n) => DFS O(n) + sorting columns & each column elements
+# Space: O(n) => dictionary + recursion stack O(h)
 '''
 class Node:
     def __init__(self, val):
