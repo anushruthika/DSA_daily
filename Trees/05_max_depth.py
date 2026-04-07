@@ -1,4 +1,19 @@
 # 104. Maximum Depth of Binary Tree
+
+# Time: O(n) => all nodes traversed once
+# Space: O(h) (worst O(n) => skewed Tree, best O(log n) => balanced tree)
+class Solution:
+    def rec(self,root):
+        if not root:
+            return 0
+        lh = self.rec(root.left)
+        rh = self.rec(root.right)
+        return max(lh,rh)+1
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        return self.rec(root)
+
+
+
 # Input: root = [3,9,20,null,null,15,7]
 # Output: 3
 
