@@ -3,6 +3,10 @@
 
 # https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
 
+
+## undirected graph - node,parent lookup
+## directed graph - node, path lookup
+
 class Solution:
 	def isCycle(self, V, edges):
 		# step1: form adj list
