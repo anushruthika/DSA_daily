@@ -1,6 +1,8 @@
 # Time: O(V + E) => building adjacency list takes O(E), and DFS visits each node and edge once
 # Space: O(V + E) => adjacency list stores all edges + visited array + recursion stack (worst case O(V))
 
+# https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
+
 class Solution:
 	def isCycle(self, V, edges):
 		# step1: form adj list
