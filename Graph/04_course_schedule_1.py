@@ -7,6 +7,9 @@
 # Time: O(V + E) => each node and edge is visited once during DFS
 # Space: O(V) => visited + path arrays + recursion stack (worst O(V), best O(log V) depending on graph depth)
 
+
+# DFS topological sorting=> 
+
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         adj = [[] for i in range(numCourses)]
