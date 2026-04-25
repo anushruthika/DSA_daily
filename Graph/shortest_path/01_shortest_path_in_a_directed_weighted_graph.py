@@ -1,5 +1,11 @@
 # https://www.geeksforgeeks.org/problems/shortest-path-in-undirected-graph/1
 
+# Time: O(V + E)  (average case for DAG-like behavior)
+# Worst-case Time: O(V * E)
+# Space: O(V + E)
+
+# If weights exist → use Dijkstra (priority queue) O((V + E) log V)  ✅ guaranteed
+
 from typing import List
 from collections import deque
 
