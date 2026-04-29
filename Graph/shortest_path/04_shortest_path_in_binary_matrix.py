@@ -1,5 +1,12 @@
 # https://leetcode.com/problems/shortest-path-in-binary-matrix/submissions/1990716231/
 
+# Time: O(n^2)  
+#   Reason: Each cell in the n x n grid is visited at most once, and for each cell we check 8 directions (constant work).
+# Worst-case Time: O(n^2)  
+#   Reason: In the worst case (all cells are 0), BFS explores the entire grid before reaching the destination or concluding it's unreachable.
+# Space: O(n^2)  
+#   Reason: The queue can hold up to O(n^2) cells, and the visited set can also store up to O(n^2) cells.
+
 class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
         n = len(grid)
