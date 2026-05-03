@@ -32,6 +32,7 @@ class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
         org = image[sr][sc]
         def flood_fill(x,y):
+            # if not (0<=x<m and 0<=y<n and image[x][y] == prev_color):
             if (x < 0 or x >= len(image)) or (y < 0 or y >= len(image[0])) or (image[x][y] == color) or (image[x][y] != org): 
                 return
             image[x][y] = color
