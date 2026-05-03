@@ -1,1 +1,6 @@
 
+
+## When DFS When BFS...
+DFS → for exploring / connected components BFS → for both exploring / connected components & shortest path (unweighted graphs) Dijkstra / Bellman-Ford / Floyd → for weighted shortest path, BFS perferred in standard form. why BFS and not DFS?
+DFS goes deep first, so it may explore longer paths first,
+while BFS explores level by level, so the first path found is the shortest (in unweighted graphs).
