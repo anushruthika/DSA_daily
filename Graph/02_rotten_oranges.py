@@ -35,6 +35,9 @@ class Solution:
         while queue and fresh > 0:
             
             # process all oranges that rot in current minute
+            #################
+            # EXTRA LOOP 
+            #################
             for _ in range(len(queue)):
                 r, c = queue.popleft()
                 
