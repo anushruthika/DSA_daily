@@ -24,3 +24,5 @@ class Solution:
                     return False
 
         return True
+# EXPLANATION
+# Use DFS to color nodes with two colors; if any adjacent nodes get the same color, the graph is not bipartite.
