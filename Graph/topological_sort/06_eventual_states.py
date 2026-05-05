@@ -1,3 +1,4 @@
+# similar to course schdeule 2. but if it consists loop dont return immediately.
 class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
         V = len(graph)
@@ -26,6 +27,7 @@ class Solution:
         
         return sorted(stack)   # sort because order doesn't matter
 
+# inv matrix
 from typing import List
 class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
