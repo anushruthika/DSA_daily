@@ -1,5 +1,13 @@
 # http://geeksforgeeks.org/problems/shortest-path-in-undirected-graph-having-unit-distance/1
+# Time: O(V + E)
+# - Building adjacency list → O(E)
+# - BFS visits each node once → O(V)
+# - Each edge processed at most twice (undirected) → O(E)
 
+# Space: O(V + E)
+# - Adjacency list → O(E)
+# - Distance array → O(V)
+# - Queue can hold up to V nodes → O(V)
 
 from collections import deque
 
