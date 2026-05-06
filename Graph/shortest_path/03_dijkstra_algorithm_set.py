@@ -1,5 +1,18 @@
 # https://www.geeksforgeeks.org/problems/shortest-path-in-undirected-graph/1
 
+# Time Complexity:
+# O(V^2 + E)
+# - Each time we pick min(set_) → O(V) (linear scan over set)
+# - This happens up to V times → O(V^2)
+# - For each node, we relax its edges → total O(E)
+# Overall: O(V^2 + E)
+
+# Space Complexity:
+# O(V + E)
+# - Adjacency list → O(E)
+# - Distance array → O(V)
+# - Set can hold up to O(V) elements
+
 # Time: O(V^2 + E)
 # Space: O(V + E)
 from typing import List
