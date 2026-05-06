@@ -1,6 +1,7 @@
 # https://www.geeksforgeeks.org/problems/shortest-path-in-undirected-graph/1
 
 # Time: O(V * E)
+# push/pop in queue is O(1)
 # - Each edge can be relaxed multiple (V)times=> V*E (but in dijskstra logV times therefore E*logV)
 # - In total, up to V relaxations per edge → O(V * E)
 
