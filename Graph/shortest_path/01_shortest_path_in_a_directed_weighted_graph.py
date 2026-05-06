@@ -1,8 +1,13 @@
 # https://www.geeksforgeeks.org/problems/shortest-path-in-undirected-graph/1
 
-# Time: O(V + E)  (average case for DAG-like behavior)
-# Worst-case Time: O(V * E)
+# Time: O(V * E)
+# - Each edge can be relaxed multiple (V)times=> V*E (but in dijskstra logV times therefore E*logV)
+# - In total, up to V relaxations per edge → O(V * E)
+
 # Space: O(V + E)
+# - Adjacency list stores edges → O(E)
+# - Distance array → O(V)
+# - Queue → up to O(V)
 
 # If weights exist → use Dijkstra (priority queue) O((V + E) log V)  ✅ guaranteed
 
