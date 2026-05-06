@@ -1,9 +1,8 @@
 # 787. Cheapest Flights Within K Stops
-# Time: O(E * k * log (V * k))
-# - Each state is (node, stops) → up to V * k states
-# - From each state, we explore outgoing edges → up to E transitions per level
-# - Each push/pop in heap takes log(V * k)
-# ⇒ Total: O(E * k * log (V * k))
+# Time: O(E * k * log (V * k)) ### V: nodes E: edges K: stops 
+# 1. while pq: designed to run for V*K times, due to relaxation the while pq reduces to E*K 
+# 2. log(V*K) heap stores(dist,node(V),stop(K)) and is unique for (V*K) at max can store upto V*K 
+# and push and pop operation in heap is log(V*E)
 
 # Space: O(V * k + E)
 # - Adjacency list → O(E)
