@@ -1,3 +1,28 @@
+# 721. Accounts Merge
+
+# Time: O(E * α(N) + E log E)
+
+# - E = total number of emails
+# - N = number of accounts
+
+# - Traversing all emails + union/find operations → O(E * α(N))
+#   (α(N) is nearly constant)
+
+# - Sorting merged emails:
+#   In worst case all emails belong to one account → O(E log E)
+
+# ⇒ Total: O(E * α(N) + E log E)
+
+
+# Space: O(N + E)
+
+# - Parent + rank arrays → O(N)
+# - uniq_emails hashmap → O(E)
+# - merged hashmap → O(E)
+# - result stores all emails → O(E)
+
+# ⇒ Total: O(N + E)
+
 from collections import defaultdict
 
 class DisjointSet:
