@@ -2,6 +2,13 @@
 
 # Time Complexity  : O(V + E) => Every node visited once O(v) , Every edge traversed once O(E)
 # Space Complexity : O(V) disc ,low , inSt => stores of size V
+
+# Understanding
+# If a subtree cant reach the ancestor node except through its parent edge. then the parentedge is a bridge
+# removing that bridge divides the graph into two different components
+
+# disc => time of insertion, 
+# low => lowest time of insertion (helps us track a back edge) if backe edge exists the node is not a root.
 class Solution:
 
     # Function to find all Strongly Connected Components using Tarjan's Algorithm
