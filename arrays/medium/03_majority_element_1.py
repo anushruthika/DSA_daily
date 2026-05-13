@@ -18,6 +18,7 @@ class Solution:
 # time : o(nlogn)- sorting,
 # space: o(1)
 # approach: sorted [1,1,1,2,2,2,2] nums[3] = 2 middle is the answer
+# ceil: It returns the smallest integer greater than or equal to the given number. math.ceil(2.4) = 3
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         return sorted(nums)[math.ceil(len(nums)//2)]
