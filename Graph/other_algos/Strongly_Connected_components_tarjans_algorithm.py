@@ -6,84 +6,47 @@
 # Understanding
 # If a subtree cant reach the ancestor node except through its parent edge. then the parentedge is a bridge
 # removing that bridge divides the graph into two different components
-
+# strongly connected nodes
 # disc => time of insertion, 
 # low => lowest time of insertion (helps us track a back edge) if backe edge exists the node is not a root.
+
+# time: O(V+E)
+# space: O(v)
 class Solution:
 
     # Function to find all Strongly Connected Components using Tarjan's Algorithm
     def tarjans(self, V, adj):
 
-        # Time Complexity : O(V + E)
-        # Space Complexity: O(V)
-
-        disc = [-1] * V
-        low = [-1] * V
-
-        inSt = [False] * V
-
-        st = []
-
+        disc = [-1]*V
+        low = [-1]*V
+        instack = [False]*V
+        stack = []
+        allssc=[]
         timer = [0]
-
-        allSCCs = []
-
-        # DFS function
-        def findSCC(u):
-
-            # Assign discovery time and low value
-            timer[0] += 1
-
-            disc[u] = low[u] = timer[0]
-
-            # Push into stack
-            st.append(u)
-
-            inSt[u] = True
-
-            # Traverse neighbors
-            for v in adj[u]:
-
-                # Tree Edge
-                if disc[v] == -1:
-
-                    findSCC(v)
-
-                    low[u] = min(low[u], low[v])
-
-                # Back Edge
-                elif inSt[v]:
-
-                    low[u] = min(low[u], disc[v])
-
-            # Head node of SCC
-            if low[u] == disc[u]:
-
-                scc = []
-
+        def dfs(node):
+            timer[0]+=1
+            low[node]=disc[node]=timer[0]
+            instack[node] = True
+            stack.append(node)
+            for nei in adj[node]:
+                if disc[nei] == -1:
+                    dfs(nei)
+                    low[node] = min(low[node],low[nei])
+                elif instack[nei]:
+                    low[node] = min(low[node],disc[nei])
+                    
+            if low[node] == disc[node]:
+                ssc = []
                 while True:
-
-                    x = st.pop()
-
-                    inSt[x] = False
-
-                    scc.append(x)
-
-                    if x == u:
+                    x = stack.pop()
+                    instack[x] = False
+                    ssc.append(x)
+                    if x == node:
                         break
-
-                scc.sort()
-
-                allSCCs.append(scc)
-
-        # Run DFS for all nodes
+                ssc.sort()
+                allssc.append(ssc)
         for i in range(V):
-
             if disc[i] == -1:
-
-                findSCC(i)
-
-        # Lexicographical sorting
-        allSCCs.sort()
-
-        return allSCCs
+                dfs(i)
+    
+        return sorted(allssc)
