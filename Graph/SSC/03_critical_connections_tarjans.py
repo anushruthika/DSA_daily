@@ -1,4 +1,5 @@
- # Time Complexity: O(V + E)
+# 1192. Critical Connections in a Network
+# Time Complexity: O(V + E)
  # Space Complexity: O(V)
 class Solution:
     def criticalConnections(self, V: int, connections: List[List[int]]) -> List[List[int]]:
