@@ -1,7 +1,5 @@
 # https://www.geeksforgeeks.org/problems/articulation-point-1/1
 
-# Time Complexity  : O(V + E)
-# Space Complexity : O(V)
 class Solution:
 
     # Function to find articulation points in the graph
@@ -15,7 +13,7 @@ class Solution:
 
         visited = [False] * V
 
-        ap = [False] * V
+        ap = set()
 
         timer = [0]
 
@@ -46,12 +44,11 @@ class Solution:
                     # Case 1:
                     # Root node with more than one child
                     if parent == -1 and children > 1:
-                        ap[u] = True
-
+                        ap.add(u)
                     # Case 2:
                     # Non-root node
                     if parent != -1 and low[v] >= disc[u]:
-                        ap[u] = True
+                        ap.add(u)
 
                 # Back Edge
                 elif v != parent:
@@ -65,16 +62,4 @@ class Solution:
 
                 dfs(i, -1)
 
-        # Collect articulation points
-        ans = []
-
-        for i in range(V):
-
-            if ap[i]:
-                ans.append(i)
-
-        # If no articulation point exists
-        if not ans:
-            return [-1]
-
-        return ans
+        return [-1] if len(ap) == 0 else sorted(ap)
