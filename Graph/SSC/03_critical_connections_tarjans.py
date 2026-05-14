@@ -19,7 +19,7 @@ class Solution:
                 if disc[nei] == -1:
                     dfs(nei,node)
                     low[node] = min(low[node],low[nei])
-                    if low[nei] > disc[node]:
+                    if disc[node]<low[nei]:
                         bridges.append([node,nei])
                 else:
                     low[node] = min(low[node],disc[nei])
