@@ -1,4 +1,6 @@
 # https://www.geeksforgeeks.org/problems/minimum-spanning-tree/1
+
+# MST: n nodes n-1 edges: to represent the graph
 # Time: O(E log V)
 # - Building adjacency list → O(E)
 # - Each edge may be pushed into heap once → O(E operations)
