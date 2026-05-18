@@ -1,4 +1,5 @@
 # 2 SUMS: 
+# 2236. Root Equals Sum of Children
 # 1. https://www.naukri.com/code360/problems/childrensumproperty_790723
 # 2. https://www.geeksforgeeks.org/problems/children-sum-parent/1
 
@@ -107,6 +108,36 @@ class Solution:
                     cond = cond and l_h
                 if root.right:
                     r_h = self.isSumProperty(root.right)
+                    cond = cond and r_h
+                return cond
+            return False
+
+
+# 2236. Root Equals Sum of Children
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def checkTree(self, root: Optional[TreeNode]) -> bool:
+        if root:
+            if root.left == None and root.right == None:
+                return True
+            sum_ = 0
+            if root.left:
+                sum_+=root.left.val
+            if root.right:
+                sum_+=root.right.val
+            if sum_ == root.val:
+                cond = True
+                if root.left:
+                    l_h = self.checkTree(root.left)
+                    cond = cond and l_h
+                if root.right:
+                    r_h = self.checkTree(root.right)
                     cond = cond and r_h
                 return cond
             return False
