@@ -1,4 +1,5 @@
 # 530. Minimum Absolute Difference in BST
+# 783. Minimum Distance Between BST Nodes
 
 class Solution:
 
