@@ -1,5 +1,8 @@
 # 1248. Count Number of Nice Subarrays
-
+# Time Complexity: O(n)
+# Reason:
+# Sliding window traverses the array once O(n).. two times O(2n) = O(n)
+# Space Complexity: O(1)
 
 class Solution:
     def atmost(self,nums,k):
