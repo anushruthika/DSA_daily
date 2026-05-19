@@ -1,6 +1,15 @@
 # 2441. Largest Positive Integer That Exists With Its Negative
-
-
+# Time Complexity: O(n)
+# Space Complexity: O(n)
+class Solution:
+    def findMaxK(self, nums: List[int]) -> int:
+        s = set(nums)
+        ans = -1
+        for i in nums:
+            if -i in s:
+               ans = max(ans,abs(i)) 
+        return ans
+        
 # Time Complexity: O(n log n) (sorting)
 # Space Complexity: O(n)
 class Solution:
