@@ -1,3 +1,23 @@
+# 225. Implement Stack using Queues
+# __init__
+# TC: O(1)
+# SC: O(1)
+
+# push
+# TC: O(n)
+# SC: O(n)
+
+# pop
+# TC: O(1)
+# SC: O(1)
+
+# top
+# TC: O(1)
+# SC: O(1)
+
+# empty
+# TC: O(1)
+# SC: O(1)
 from collections import deque
 class MyStack:
 
