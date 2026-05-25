@@ -1,5 +1,7 @@
 # 155. Min Stack
 # TC: O(1) SC:O(n)
+
+# remeber: when first time insertion minstack is empty so val should directly be appended no comparison
 class MinStack:
     def __init__(self):
         self.stack = []
