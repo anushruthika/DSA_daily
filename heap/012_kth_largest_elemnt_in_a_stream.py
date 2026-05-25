@@ -1,0 +1,23 @@
+# 703. Kth Largest Element in a Stream
+ 
+import heapq
+class KthLargest:
+
+    # TC: O(nlogk) SC: O(k)
+    def __init__(self, k: int, nums: List[int]):
+        self.pq =[]
+        for num in nums:
+            heapq.heappush(self.pq,num)
+            if len(self.pq)>k:
+                heapq.heappop(self.pq)
+        self.k =k
+    # TC: O(logk) SC: O(k)
+    def add(self, val: int) -> int:
+        heapq.heappush(self.pq,val)
+        if len(self.pq)>self.k:
+            heapq.heappop(self.pq)
+        return self.pq[0]
+
+# Your KthLargest object will be instantiated and called as such:
+# obj = KthLargest(k, nums)
+# param_1 = obj.add(val)
