@@ -1,3 +1,5 @@
+# 42. Trapping Rain Water
+# TC:O(n) SC:O(n)
 class Solution(object):
     def trap(self, height):
         n=len(height)
