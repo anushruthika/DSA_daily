@@ -19,6 +19,7 @@ class Solution:
         n = len(arr)
         res = [-1]*n
         for i in range(n):
+            # in general pse we will use >= but as in nse we include '=' we should not include here.  
             while stack and arr[stack[-1]]>arr[i]:
                 stack.pop()
             if stack and arr[stack[-1]]<=arr[i]:
