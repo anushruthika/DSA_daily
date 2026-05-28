@@ -1,10 +1,10 @@
-# 84
-
-
+# 84. Largest Rectangle in Histogram
+# TC:O(n) SC: O(n)
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
         stack = []
         max_area=0
+        # why append(0): Some bars may never find a smaller element on the right.
         heights.append(0)
         for i in range(len(heights)):
             while stack and heights[i] < heights[stack[-1]]:
