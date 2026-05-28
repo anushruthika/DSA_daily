@@ -1,5 +1,5 @@
 # 85. Maximal Rectangle
-# TC: O(n^2) SC:O(n)
+# TC: O(rows * cols) SC: O(cols)
 class Solution:
     def maximalRectangle(self, matrix: List[List[str]]) -> int:
         if not matrix:
