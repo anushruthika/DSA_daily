@@ -1,18 +1,20 @@
-class Solution(object):
-    def asteroidCollision(self, asteroids):
-        stack=[]
+# 735. Asteroid Collision
+# TC: O(n) SC: O(n)
+class Solution:
+    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        stack = []
         for i in asteroids:
-            while stack and i<0<stack[0]:
-                if abs(i)>abs(stack[0]):
-                    stack.pop(0)
-                elif abs(i)==abs(stack[0]):
-                    stack.pop(0)
-                    break
-                else:
-                    break
+            while stack and stack[-1] > 0 and i < 0:
+                # current asteroid destroys stack top
+                if stack[-1] < abs(i):
+                    stack.pop()
+                    continue
+                # case : ateroids = [8,-8] output=[]
+                # both destroy each other
+                elif stack[-1] == abs(i):
+                    stack.pop()
+                # current asteroid destroyed
+                break
             else:
-                stack.insert(0,i)
-        # stack2=[]
-        # while stack:
-        #     stack2.insert(0,stack.pop(0))
-        return stack[::-1]
+                stack.append(i)
+        return stack
