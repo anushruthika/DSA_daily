@@ -1,5 +1,6 @@
 # https://www.geeksforgeeks.org/problems/immediate-smaller-element1142/1
 # TC:O(n) SC: O(n) 
+# see, next smaller elemnt, next greater element, previous smaller element, previous greater element (!!!!!!!! while cond: while stack and stack[-1]>=arr[i])
 from collections import defaultdict
 class Solution:
 	def nextSmallerEle(self, arr):
