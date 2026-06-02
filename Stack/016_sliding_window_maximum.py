@@ -1,6 +1,6 @@
 # 239. Sliding Window Maximum
 
-# idea : monotonic decreasing queue
+# idea : monotonic decreasing queue (monotonic means always moving in 1D- either increasing or decreasing)
 # TC: O(n)
 # SC: O(n) => # Auxiliary SC: O(k) (excluding output array)
 class Solution:
