@@ -1,15 +1,23 @@
+# 239. Sliding Window Maximum
+
+# TC: O(n)
+# SC: O(n) => # Auxiliary SC: O(k) (excluding output array)
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        stack=[]
-        res=[]
-        for i in range(len(nums)):
-            # append the element i, but if nums[i]> than the stack elements delete those elements
-            # which tells the stack[0] has the maximum element in the window
-            while stack and nums[stack[-1]]<=nums[i]:
-                stack.pop(-1)
-            stack.append(i)
-            if stack[0]<=i-k:
-                stack.pop(0)
-            if i>=k-1:
-                res.append(nums[stack[0]])
+        from collections import deque
+        q = deque() # stores *indices*
+        res = []
+        for i, cur in enumerate(nums):
+            while q and nums[q[-1]] <= cur:
+                q.pop()
+            q.append(i)
+            # remove first element if it's outside the window
+            if q[0] == i - k:
+                q.popleft()
+            # if window has k elements, add to results (first k-1 windows have < k elements because we start from empty window and add 1 element each iteration)
+            if i >= k - 1:
+                res.append(nums[q[0]])
         return res
+            
+        
+            
