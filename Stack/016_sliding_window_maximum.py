@@ -1,5 +1,6 @@
 # 239. Sliding Window Maximum
 
+# idea : monotonic decreasing queue
 # TC: O(n)
 # SC: O(n) => # Auxiliary SC: O(k) (excluding output array)
 class Solution:
