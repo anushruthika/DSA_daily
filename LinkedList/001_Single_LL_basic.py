@@ -25,7 +25,6 @@ class LinkedList:
 
         print("None")
         
-
     # Insert at beginning
     def insert_beg(self, val):
 
@@ -160,9 +159,49 @@ class LinkedList:
         new_node.next_ = cur.next_
         cur.next_ = new_node
         self.length+=1
+        
     def get_length(self):
         return self.length
-
+    
+    def search(self,val):
+        cur = self.head
+        count =0
+        while cur:
+            count+=1
+            if cur.data == val:
+                return count
+            cur = cur.next_
+        return -1
+    
+    def del_beg(self):
+        if self.head: 
+            self.head = self.head.next_
+            self.length-=1
+        else:
+            print("No nodes yet")
+    def del_end(self):
+        if self.head:
+            cur = self.head
+            prev = cur
+            while cur.next_:
+                prev = cur
+                cur = cur.next_
+            prev.next_= None
+            self.length-=1
+        else:
+            print("No Nodes yet")
+    def del_middle(self):
+        if self.head:
+            slow = fast = self.head
+            prev = slow
+            while fast and fast.next_:
+                prev = slow
+                slow = slow.next_
+                fast = fast.next_.next_
+            prev.next_ = slow.next_
+            self.length-=1
+        else:
+            print("No Node yet")
 
 # Driver Code
 
@@ -199,3 +238,15 @@ print(ll.get_length())
 ll.insert_after_pos(8, 6)
 ll.display()
 print(ll.get_length())
+
+print(ll.search(4))
+print(ll.search(0))
+
+ll.del_beg()
+ll.display()
+
+ll.del_end()
+ll.display()
+
+ll.del_middle()
+ll.display()
