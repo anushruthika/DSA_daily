@@ -1,3 +1,6 @@
+# 141. Linked List Cycle
+# TC: O(n)
+# SC: O(1)
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         # using head instead of fast
