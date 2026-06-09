@@ -1,3 +1,6 @@
+
+# 2095. Delete the Middle Node of a Linked List
+# TC:O(n/2)=O(n) SC:O(1)
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         slow=fast=head
