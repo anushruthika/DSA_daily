@@ -1,10 +1,7 @@
-'''
+# https://www.geeksforgeeks.org/problems/add-1-to-a-number-represented-as-linked-list/1
 
-class Node:
-    def __init__(self, data):   # data -> value stored in node
-        self.data = data
-        self.next = None
-'''
+# TC: O(n)
+# SC: O(1)
 # Reverse -> Add one and continue if borrow exists -> Reverse and return
 class Solution:
     def rev(self,head):
