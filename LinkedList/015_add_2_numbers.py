@@ -1,51 +1,57 @@
-#### Add 2 numbers
+#### Add 2 numbers 
+# 445. Add Two Numbers II
 # TC: O(n + m)
 # SC: O(max(n, m))
 
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
 class Solution:
     def rev(self,head):
-        cur = head
-        prev = None
+        cur=head
+        prev=None
         while cur:
-            temp = cur.next
+            nex=cur.next
             cur.next = prev
-            prev = cur
-            cur = temp
+            prev=cur
+            cur=nex
         return prev
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        rev1 = self.rev(l1)
-        rev2 = self.rev(l2)
-        borrow = 0
-        cur1 = rev1
-        cur2 = rev2
+        l1r = self.rev(l1)
+        l2r = self.rev(l2)
+        bor = 0
+        c1 = l1r
+        c2 = l2r
         res = ListNode(-1)
-        new_node = res
-        while cur1 and cur2:
-            val = cur1.val+cur2.val+borrow
-            new_node.next = ListNode(val%10)
-            new_node = new_node.next
-            borrow = val//10
-            cur1 = cur1.next
-            cur2 = cur2.next
-        while cur1:
-            val = cur1.val+borrow
-            new_node.next = ListNode(val%10)
-            new_node = new_node.next
-            borrow = val//10
-            cur1 = cur1.next
-        while cur2:
-            val = cur2.val+borrow
-            new_node.next = ListNode(val%10)
-            new_node = new_node.next
-            borrow = val//10
-            cur2 = cur2.next
-        if borrow:
-            new_node.next = ListNode(borrow)
-        return res.next
-        
-
+        sl = res
+        while c1 and c2:
+            val = c1.val+c2.val+bor
+            if val>=10:
+                bor = val//10
+                val = val%10
+            else:
+                bor = 0
+            sl.next = ListNode(val)
+            c1 = c1.next
+            c2 = c2.next
+            sl = sl.next
+        while c1:
+            val = c1.val+bor
+            if val>=10:
+                bor = val//10
+                val = val%10
+            else:
+                bor = 0
+            c1 = c1.next
+            sl.next = ListNode(val)
+            sl = sl.next
+        while c2:
+            val = c2.val+bor
+            if val>=10:
+                bor = val//10
+                val = val%10
+            else:
+                bor = 0
+            c2 = c2.next
+            sl.next = ListNode(val)
+            sl = sl.next
+        if bor:
+            sl.next = ListNode(bor)
+        return self.rev(res.next)
