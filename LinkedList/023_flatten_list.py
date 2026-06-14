@@ -1,4 +1,6 @@
 # https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1
+# TC: O(N * k) in the recursive merge approach
+# SC: O(k) recursion stack
 '''
 class Node:
     def __init__(self, d):
