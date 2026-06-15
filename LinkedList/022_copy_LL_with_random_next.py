@@ -41,3 +41,58 @@ class Solution:
             old_to_new[cur].random = old_to_new.get(cur.random)
             cur = cur.next
         return old_to_new[head]
+
+
+
+############################# OPTIMAL
+
+
+# TC: O(n)
+# SC: O(1) auxiliary space
+
+# Definition for a Node.
+# class Node:
+#     def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+#         self.val = int(x)
+#         self.next = next
+#         self.random = random
+
+class Solution:
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+
+        if not head:
+            return None
+
+        # Step 1: Insert copy node after every original node
+        cur = head
+
+        while cur:
+            copy = Node(cur.val)
+            copy.next = cur.next
+            cur.next = copy
+            cur = copy.next
+
+        # Step 2: Set random pointers
+        cur = head
+
+        while cur:
+            if cur.random:
+                cur.next.random = cur.random.next
+            cur = cur.next.next
+
+        # Step 3: Separate the two lists
+        old = head
+        new_head = head.next
+        copy = new_head
+
+        while old:
+
+            old.next = old.next.next
+
+            if copy.next:
+                copy.next = copy.next.next
+
+            old = old.next
+            copy = copy.next
+
+        return new_head
