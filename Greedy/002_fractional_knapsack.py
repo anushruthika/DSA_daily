@@ -9,6 +9,7 @@
 # sack list
 class Solution:
     def fractionalKnapsack(self, val, wt, capacity):
+        ##### sort based on ratio of val/wt
         sack = [(val[i]/wt[i], wt[i], val[i]) for i in range(len(val))]
         sack.sort(reverse=True)
         weight = 0
