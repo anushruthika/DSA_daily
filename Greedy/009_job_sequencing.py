@@ -22,6 +22,46 @@
 # O(n) recursion stack
 # O(D) slots array
 
+# why 2^n?
+
+
+# For each job, we have 2 choices:
+
+# 1. Take the job
+# 2. Don't take the job
+
+# Example:
+
+# J1 -> (d=2, p=100)
+# J2 -> (d=1, p=50)
+# J3 -> (d=2, p=20)
+
+#### we check all possibilities, recursion tree:
+
+# Take J1, Take J2, Take J3
+# Take J1, Take J2, Skip J3
+
+# Take J1, Skip J2, Take J3
+# Take J1, Skip J2, Skip J3
+
+# Skip J1, Take J2, Take J3
+# Skip J1, Take J2, Skip J3
+
+# Skip J1, Skip J2, Take J3
+# Skip J1, Skip J2, Skip J3
+
+      #               J1
+      #            /      \
+      #        Skip       Take
+      #         |           |
+      #        J2          J2
+      #      /   \       /    \
+      #  Skip   Take   Skip   Take
+      #    |      |      |      |
+      #   J3     J3     J3     J3
+      #  / \    / \    / \    / \
+      # S   T  S   T  S   T  S   T
+
 class Solution:
 
     def jobSequencing(self, deadline, profit):
