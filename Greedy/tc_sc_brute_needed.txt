@@ -1,0 +1,13 @@
+| Problem                   | Brute Force Needed? | Brute Force TC  | Optimal TC       | Optimal SC  |
+| ------------------------- | ------------------- | --------------- | ---------------- | ----------- |
+| N Meetings in One Room    | ❌                   | O(2ⁿ)           | O(n log n)       | O(1)        |
+| Jump Game I               | ✅                   | O(2ⁿ)           | O(n)             | O(1)        |
+| Jump Game II              | ✅                   | O(2ⁿ)           | O(n)             | O(1)        |
+| Minimum Platforms         | ✅                   | O(n²)           | O(n log n)       | O(1)        |
+| Job Sequencing            | ❌                   | O(2ⁿ)           | O(n log n) (DSU) | O(D)        |
+| Candy                     | ❌                   | O(n²)           | O(n)             | O(n)        |
+| Shortest Job First        | ❌                   | O(n²)           | O(n log n)       | O(1)        |
+| LRU Page Replacement      | ❌                   | O(n × capacity) | O(n)             | O(capacity) |
+| Insert Interval           | ❌                   | O(n²)           | O(n)             | O(n)        |
+| Merge Intervals           | ❌                   | O(n²)           | O(n log n)       | O(n)        |
+| Non-overlapping Intervals | ❌                   | O(2ⁿ)           | O(n log n)       | O(1)        |
