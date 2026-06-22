@@ -1,4 +1,38 @@
 #  https://www.geeksforgeeks.org/problems/activity-selection-1587115620/1
+
+########## BRUTE FORCE
+# TC: O(2^n)
+# Every meeting has:
+#   Take
+#   Don't Take
+
+# SC: O(n)
+# Recursion stack
+class Solution:
+
+    def maxMeetings(self, start, end):
+
+        meetings = list(zip(start, end))
+        meetings.sort()
+
+        def dfs(i, last_end):
+
+            if i == len(meetings):
+                return 0
+
+            # Skip current meeting
+            not_take = dfs(i + 1, last_end)
+
+            take = 0
+
+            if meetings[i][0] > last_end:
+                take = 1 + dfs(i + 1, meetings[i][1])
+
+            return max(take, not_take)
+
+        return dfs(0, -1)
+
+####################### GREEDY OPTIMAL
 # TC: O(n log n)
 # Sorting meetings: O(n log n)
 # Single traversal: O(n)
