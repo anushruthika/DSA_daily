@@ -1,5 +1,9 @@
 # https://www.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1
 
+# Brute Force: Try all possible item orders
+# TC: O(n!)
+
+# Optimal Greedy:
 # TC: O(n log n)
 # O(n) to create sack
 # O(n log n) to sort
