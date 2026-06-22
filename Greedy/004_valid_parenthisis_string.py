@@ -1,4 +1,23 @@
 # 678. Valid Parenthesis String
+# TC: O(3^k) - Each '*' creates 3 branches, worst case: s = "********"
+# SC: O(n)
+
+class Solution:
+    def checkValidString(self, s: str) -> bool:
+        def dfs(ind,balance):
+            if balance<0:
+                return False
+            if ind == len(s):
+                return balance == 0
+            if s[ind] == '(':
+                return dfs(ind+1,balance+1)
+            elif s[ind] == ')':
+                return dfs(ind+1,balance-1)
+            else:
+                return dfs(ind+1,balance+1) or dfs(ind+1,balance) or dfs(ind+1,balance-1)
+        return dfs(0,0)
+
+############# MEMOTISATION YET TO ADD
 
 # TC: O(n)
 # Traverse the string once, updating low and high for each character.
