@@ -26,6 +26,7 @@ class Solution:
         for i in range(len(words) - 1):
             w1, w2 = words[i], words[i + 1]
             # invalid case
+            #### In every valid dictionary order: ab < abc and not abc<ab
             if w1.startswith(w2) and len(w1) > len(w2):
                 return ""
               # find first different char
