@@ -5,8 +5,9 @@
 # DFS
 ####
 # Time: O(V + E) => each node and edge is visited once during DFS
-# Space: O(V) => visited + path arrays + recursion stack (worst O(V), best O(log V) depending on graph depth)
-
+# Space: O(V+E) => visited + path arrays + recursion stack (worst O(V), best O(log V) depending on graph depth)
+# Let us take we are directly given adj: then time is O(V+E):O(V) outer loop to call function,O(E) tries to traverse every edge once.
+# and space is O(V): only path,visited is created there is no adj needed to be created
 
 # DFS topological sorting=> 
 
