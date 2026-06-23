@@ -1,4 +1,10 @@
 # similar to course schdeule 2. but if it consists loop dont return immediately.
+
+# | Solution          | Time             | Space    |
+# | ----------------- | ---------------- | -------- |
+# | Topological sort+ sort(stack) | O(V + E + VlogV) | O(V)     |
+# | Reverse graph DFS | O(V + E)         | O(V + E) |
+
 class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
         V = len(graph)
