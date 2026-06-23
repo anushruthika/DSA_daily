@@ -1,6 +1,8 @@
 # Time: O(V + E) => we visit each course once (V) and traverse each prerequisite edge once (E)
 # Space: O(V + E) => adjacency list stores edges + visited/path arrays + recursion stack (worst case V)
 
+# Let us take we are directly given adj: then time is O(V+E):O(V) outer loop to call function,O(E) tries to traverse every edge once.
+# and space is O(V): only path,visited is created there is no adj needed to be created
 # 210. Course Schedule II
 
 # DFS
