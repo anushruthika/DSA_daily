@@ -1,20 +1,16 @@
+# https://www.geeksforgeeks.org/problems/implement-lower-bound/1
 
-arr= [1,2,2,3]
-target=2
-arr= [3,5,8,15,19] 
-target = 9
-low = 0
-high = len(arr) - 1
-flag=1
-while low <= high:
-    mid = (low + high) // 2
-    if arr[mid] == target:
-        flag=0
-        print(mid)
-        break
-    elif arr[mid] < target:
-        low = mid + 1
-    else:
-        high = mid - 1
-if flag==1:
-    print(low)
+# TC:O(logn) SC:O(1)
+class Solution:
+    def lowerBound(self, nums, target):
+        low = 0
+        high = len(nums) - 1
+        while low <= high:
+            # 1. Corrected operator precedence
+            mid = low + (high - low) // 2 
+            if nums[mid] < target:
+                low = mid + 1
+            else:
+                high = mid - 1 
+        return low 
+
