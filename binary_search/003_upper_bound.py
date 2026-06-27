@@ -1,6 +1,6 @@
 # https://www.geeksforgeeks.org/problems/implement-upper-bound/1
 # TC:O(logn) SC:O(n)
-# X > target (if arr[mid]==target: then low=mid-1)
+# X > target (if arr[mid]==target: then low=mid+1)
 class Solution:
     def upperBound(self, arr, target):
         # code here
