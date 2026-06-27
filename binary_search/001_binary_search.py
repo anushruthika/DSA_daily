@@ -1,9 +1,11 @@
+# 704. Binary Search
+# TC: O(logn) SC:O(1)
 class Solution:
     def search(self, arr: List[int], target: int) -> int:
         low = 0
         high = len(arr) - 1
         while low <= high:
-            mid = (low + high) // 2
+            mid = low + (high - low) // 2
             if arr[mid] == target:
                 return mid
             elif arr[mid] < target:
