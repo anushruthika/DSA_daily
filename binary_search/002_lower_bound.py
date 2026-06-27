@@ -1,5 +1,5 @@
 # https://www.geeksforgeeks.org/problems/implement-lower-bound/1
-
+# X >= target (if arr[mid]==target: then high=mid-1)
 # TC:O(logn) SC:O(1)
 class Solution:
     def lowerBound(self, nums, target):
