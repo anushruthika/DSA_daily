@@ -13,7 +13,7 @@ class Solution:
 #############
 # 35. Search Insert Position
 # TC:O(logn) SC:O(1)
-# x>= target
+# x>= target (lower bound)
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         low = 0
