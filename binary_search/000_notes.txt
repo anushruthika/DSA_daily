@@ -1,0 +1,9 @@
+upper_bound,lower_bound
+rotated sorted array
+
+Binary Search on Answers
+** important kth missing positive num
+
+Find(min(max) and max(min))
+
+BS on 2D
