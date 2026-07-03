@@ -1,4 +1,4 @@
-
+# https://www.geeksforgeeks.org/problems/minimize-max-distance-to-gas-station/1
 
 ######## BRUTE FORCE
 # Time: O(k × n)
