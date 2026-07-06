@@ -1,12 +1,29 @@
+# 14. Longest Common Prefix
+
+# Time Complexity: O(n × m)
+# Auxiliary Space: O(1)
+# Space Complexity (including returned string): O(m)
+
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        prefix =  strs[0]
-        min_length=len(prefix)
-        for i in range(1,len(strs)):
-            min_length = min(min_length,len(strs[i]))
-            prefix=prefix[:min_length]
-            while prefix != strs[i][:min_length]:
-                prefix = prefix[:-1]
-                strs[i] = strs[i][:-1]
-                min_length -=1
-        return prefix  
+        i = 0
+        n = len(strs)
+        res = len(strs[0])
+        while i<n-1:
+            s1,s2 = strs[i],strs[i+1]
+            n1,n2 = len(s1),len(s2)
+            count = 0
+            j=0
+            k=0
+            while j<n1 and k<n2:
+                if s1[j] == s2[k] :
+                    count+=1
+                else:
+                    break
+                j+=1
+                k+=1
+            res = min(count,res)
+            i+=1
+        return strs[0][:res]
+
+ 
