@@ -4,6 +4,17 @@
 # Time Complexity: O(n)
 # Space Complexity: O(n)
 
+# s = "aabba"
+# aabba#abbaa
+# lps: [0,1,0,0,1,0,1,0,0,1,2]
+# ans: abb + aa bba => aa is repeating thus no need to add. answer: 2
+
+# s = "abcd"
+# abcd#dcba
+# lps: [0,0,0,0,0,0,0,0,1]
+# ans: dcb + a bcd => a is repeating thus no need to add. answer: 1
+
+
 class Solution:
     def shortestPalindrome(self, s: str) -> str:
         if not s:
