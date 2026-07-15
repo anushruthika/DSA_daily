@@ -1,5 +1,17 @@
 # https://www.geeksforgeeks.org/problems/search-pattern-rabin-karp-algorithm--141631/1
 
+# Average Time: O(n + m)
+# Worst Time: O(nm) (many hash collisions)
+# Auxiliary Space: O(1)
+# Including output: O(number_of_matches) → worst case O(n)
+
+# space
+| Space            |          |
+| ---------------- | -------- |
+| Auxiliary        | **O(1)** |
+| Including output | **O(n)** |
+
+
 # 1. Rabin-Karp is a string matching algorithm that uses hashing to find a pattern inside a text.
 # 2. Instead of comparing the pattern with every substring character by character, it compares their hash values.
 #   Hashing allows us to reject most non-matching substrings by comparing their hash values in O(1) time instead of comparing m characters each time, 
