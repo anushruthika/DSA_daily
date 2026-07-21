@@ -1,4 +1,10 @@
 # gfg not working
+
+# 1. Tree must have exactly n-1 edges
+# V -1= len(edges)
+# 2. No cycle within
+
+
 class Solution:
 
     def isTree(self, n, m, edges):
