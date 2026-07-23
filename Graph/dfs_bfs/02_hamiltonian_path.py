@@ -2,8 +2,8 @@
 # 
 # inside dfs check if count==n pass count as parameter
 # Hamiltonian Path
-# Time Complexity: O(N!)
-# Space Complexity: O(N)
+# Time Complexity: O(V!)
+# Space Complexity: O(V+E)
 class Solution:
     def check(self, n, m, edges):
         # Build graph
