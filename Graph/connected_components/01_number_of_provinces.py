@@ -1,5 +1,11 @@
 # 547. Number of Provinces
 
+# | Approach | Time      | Space    |
+# | -------- | --------- | -------- |
+# | DFS      | **O(n²)** | **O(n)** |
+# | BFS      | **O(n²)** | **O(n)** |
+# | DSU      | **O(n²)** | **O(n)** |
+
 # Time: O(n^2) => adjacency matrix traversal
 # Space: O(n) => visited + queue
 # 💡 Can we do better than O(n²)?
@@ -57,6 +63,53 @@ class Solution:
                 bfs(i)
                 provinces+=1
         return provinces
+
+#######
+# DSU
+######
+
+from collections import deque
+class Solution:
+    class DSU:
+        def __init__(self,n:int):
+            self.parent =[i for i in range(n)]
+            self.rank = [0]*n
+        def find(self,x):
+            if self.parent[x]!=x:
+                self.parent[x] = self.find(self.parent[x])
+            return self.parent[x]
+        def union(self,u,v):
+            pu = self.find(u)
+            pv = self.find(v)
+            # already connected
+            if pu == pv:
+                return False
+            # new connection
+            if self.rank[pu]>self.rank[pv]:
+                self.parent[pv] = self.parent[pu]
+            elif self.rank[pv]>self.rank[pu]:
+                self.parent[pu] = self.parent[pv]
+            else:
+                self.parent[pv] = self.parent[pu]
+                self.rank[pu]+=1
+            return True
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        count = 0
+        n = len(isConnected)
+        dsu = self.DSU(n)
+        # n*n matrix
+        for i in range(n):
+            # for j in range(n):
+            #     if i!=j and isConnected[i][j] == 1:
+            for j in range(i+1,n):
+                if isConnected[i][j] == 1:
+                    if dsu.union(i,j):
+                        count+=1
+        return n-count
+
+
+            
+        
 
             
         
