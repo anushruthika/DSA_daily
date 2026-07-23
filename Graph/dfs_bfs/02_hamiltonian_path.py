@@ -1,9 +1,30 @@
 # https://www.geeksforgeeks.org/problems/hamiltonian-path2522/1
-# 
+
+# A Hamiltonian Path is a path that visits every vertex exactly once.
+
 # inside dfs check if count==n pass count as parameter
 # Hamiltonian Path
+
 # Time Complexity: O(V!)
 # Space Complexity: O(V+E)
+
+# time complexity is not O(V+E) and is O(V!) because we backtrack making visited as false. 
+# Eg: V=3 then V! times to check all these possibilities
+
+# graph:
+# 1
+# / \
+# 2---3
+
+# 1 → 2 → 3
+# 1 → 3 → 2
+
+# 2 → 1 → 3
+# 2 → 3 → 1
+
+# 3 → 1 → 2
+# 3 → 2 → 1
+
 class Solution:
     def check(self, n, m, edges):
         # Build graph
