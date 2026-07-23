@@ -24,18 +24,19 @@
 from collections import deque
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        visited = set()
+        visited = set()                    # SC: O(n) n:len(isConnected)
         
         def dfs(ind):
-            for j in range(len(isConnected)):
+            for j in range(len(isConnected)):    # TC: O(n)
                 if isConnected[ind][j] == 1 and j not in visited:
                     visited.add(j)
                     dfs(j)
         provinces = 0
-        for i in range(len(isConnected)):
+        # TC:O(n**2)
+        for i in range(len(isConnected)):    # TC:O(n)
             if i not in visited:
                 visited.add(i)
-                dfs(i)
+                dfs(i)                       # TC:O(n)
                 provinces+=1
         return provinces
 
