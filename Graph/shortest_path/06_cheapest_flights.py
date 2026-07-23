@@ -1,4 +1,70 @@
 # 787. Cheapest Flights Within K Stops
+
+
+### Using dijkstra
+
+import heapq
+class Solution:
+    def findCheapestPrice(self, n, flights, src, dst, k):
+        # building adj
+        # Time: O(E)
+        # Space: O(V + E)
+        adj = [[] for _ in range(n)]
+        for u, v, w in flights:
+            adj[u].append((v, w))
+        
+        pq = [(0,src,0)]
+        while pq:
+            price_node,node,stops = heapq.heappop(pq)
+            if stops>k+1:
+                continue
+            if node == dst:
+                return price_node
+            for neighbour,price_nei in adj[node]:
+                heapq.heappush(pq,(price_nei+price_node,neighbour,stops+1))
+        return -1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Time: O(E * k * log (V * k)) ### V: nodes E: edges K: stops 
 # 1. while pq: designed to run for V*K times, due to relaxation the while pq reduces to E*K 
 # 2. log(V*K) heap stores(dist,node(V),stop(K)) and is unique for (V*K) at max can store upto V*K 
