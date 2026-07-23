@@ -17,6 +17,7 @@ class Solution:
                 return copied[node]
             copied[node] = Node(node.val,[])
             for nei in node.neighbors:
+                #### DONT FORGET PERFORM DFS(NEI) explore NEIGHBOURS
                 copied[node].neighbors.append(dfs(nei))
             return copied[node]
         return dfs(node)
