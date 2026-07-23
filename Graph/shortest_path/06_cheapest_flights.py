@@ -1,7 +1,53 @@
 # 787. Cheapest Flights Within K Stops
 
+# IN dijktsra: Once a node is popped with the minimum distance, its shortest distance is finalized . (understanding same node being reached with larger distance no considered due to relaxation step.)
+#  but here. Once a node poped cant finalize:
+# example: 
+# (5, A, 4 stops)
+# (8, A, 2 stops) 
+# lets take maximum 5 stops to reach destination and # (5, A, 4 stops) unable to reach destination in 5 stops
+# thus consider # (8, A, 2 stops) 
 
-### Using dijkstra
+# Why is the complexity O(V^(k+1))?
+
+# Suppose every node is connected to every other node.
+
+# Level 0 (source):          1 node
+# Level 1 (1 edge):          V nodes
+# Level 2 (2 edges):         V² nodes
+# Level 3 (3 edges):         V³ nodes
+# ...
+# Level (k+1):               V^(k+1) nodes
+
+# Since we allow at most (k+1) edges, the algorithm may explore every possible path up to depth (k+1).
+
+# Total states:
+# 1 + V + V² + ... + V^(k+1)
+# ≈ O(V^(k+1))      (last term dominates)
+
+# Each state is pushed and popped from the heap once.
+
+# Heap operation = O(log(V^(k+1)))
+
+# Total Time:
+# O(V^(k+1) × log(V^(k+1)))
+
+###########################
+# Time complexity
+# ≈ O(V^(k+1) logV)
+#######################
+# SPACE COMPLEXITY
+
+# Adjacency List : O(V + E)
+
+# Priority Queue:
+# Stores (price, node, stops) states.
+# Since the algorithm does not prune duplicate states,
+# it may store O(V^(k+1)) states in the worst case.
+
+# Total Space:
+# O(V + E + V^(k+1))
+# = O(V^(k+1))
 
 import heapq
 class Solution:
@@ -23,45 +69,6 @@ class Solution:
             for neighbour,price_nei in adj[node]:
                 heapq.heappush(pq,(price_nei+price_node,neighbour,stops+1))
         return -1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -106,44 +113,4 @@ class Solution:
                     best[(nei, stops)] = new_cost
                     heapq.heappush(pq, (new_cost, nei, stops + 1))
         
-        return -1
-
-
-# Time Complexity:
-# O(E * k * log(E * k))
-# Reason:
-# - We treat (node, stops) as a state → total states ≈ O(n * k)
-# - From each state, we explore outgoing edges → total transitions ≈ O(E * k)
-# - Each transition may push into heap
-# - Heap operations (push/pop) take O(log(number_of_states)) ≈ O(log(E * k))
-# - So overall = O(E * k * log(E * k))
-
-# Space Complexity:
-# O(n * k + E)
-# Reason:
-# - best dictionary stores (node, stops) → O(n * k)
-# - heap can grow up to O(E * k) in worst case
-# - adjacency list stores graph → O(E)
-# - Dominant terms → O(n*k + E)
-import heapq
-class Solution:
-    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
-        adj_list = [[] for _ in range(n)]
-        for p,q,r in flights:
-            adj_list[p].append((q,r))
-        # cost/dist,stops,src
-        pq=[(0,src,0)]
-        # best[(node, stops)] = min cost
-        best = {}
-        while pq:
-            dist,node,stops = heapq.heappop(pq)
-            if node == dst:
-                return dist
-            if stops>k:
-                continue
-            if (node,stops) in best and best[(node,stops)]<=dist:
-                continue
-            best[(node,stops)]= dist
-            for node_dest,nei_dist in adj_list[node]:
-                    heapq.heappush(pq,(dist+nei_dist,node_dest,stops+1))
         return -1
