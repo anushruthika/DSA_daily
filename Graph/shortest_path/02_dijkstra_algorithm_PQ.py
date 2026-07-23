@@ -1,5 +1,24 @@
 # https://www.geeksforgeeks.org/problems/shortest-path-in-undirected-graph/1
 
+        # eg: 
+        # 0 --10--> 1
+        #  \ 
+        #   5
+        #    \
+        #     2 --1--> 1
+        
+        # queue implementation. 
+        # traverse 0-1 weights 10,
+        # then 0-2 weights 5, 
+        # then 2-1 weights (6 replace 10)
+        # thus worst case would need to replace (relax) every value in the res array thus O(V*E)
+        
+        # but in heap:
+        # traverse 0-2 weights 5
+        # traverse 2-1 weights 1
+        # then traverse 0-1, which is 10 no relaxation 
+        # follow below understanding
+
 # Time: O((V + E) log V)
 # 1=> O(logV) => heap operation to push/pop one V. O(VlogV) to push V vertex.
 # 2=> O(logV) => heap operation to push/pop one V. O(ElogV) to relax E edges
