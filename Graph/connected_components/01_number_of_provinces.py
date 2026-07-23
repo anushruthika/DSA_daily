@@ -106,6 +106,7 @@ class Solution:
                 if isConnected[i][j] == 1:
                     if dsu.union(i,j):
                         count+=1
+        # count is the number of edges that successfully merged two previously separate connected components. successful unions
         return n-count
 
 
