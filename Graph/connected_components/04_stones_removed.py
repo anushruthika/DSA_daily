@@ -84,25 +84,35 @@ class Solution:
         
         n = len(stones)
 
-        ds = DisjointSet(n)
+        # ds = DisjointSet(n)
 
-        # connect stones sharing same row or column
+        # # connect stones sharing same row or column
+        # for i in range(n):
+        #     for j in range(i + 1, n):
+
+        #         x1, y1 = stones[i]
+        #         x2, y2 = stones[j]
+
+        #         if x1 == x2 or y1 == y2:
+        #             ds.union(i, j)
+
+        # # count connected components
+        # components = 0
+
+        # for i in range(n):
+        #     if ds.find(i) == i:
+        #         components += 1
+
+        # return n - components
+
+        dsu = self.DSU(n)
+        edges = []
         for i in range(n):
-            for j in range(i + 1, n):
-
-                x1, y1 = stones[i]
-                x2, y2 = stones[j]
-
-                if x1 == x2 or y1 == y2:
-                    ds.union(i, j)
-
-        # count connected components
-        components = 0
-
-        for i in range(n):
-            if ds.find(i) == i:
-                components += 1
-
-        return n - components
-
-        return n - components
+            for j in range(i+1,n):
+                if stones[i][0] == stones[j][0] or stones[i][1] == stones[j][1]:
+                    edges.append((i,j))
+        component = 0
+        for u,v in edges:
+            if dsu.union(u,v):
+                component +=1
+        return component
