@@ -71,7 +71,37 @@ class Solution:
         return -1
 
 
+## comparison:
 
+     #    0
+     #  /   \
+     # 1     2
+     #  \   /
+     #    3
+     #    |
+     #    4
+     #    |
+     #    5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##########################
 # Time: O(E * k * log (V * k)) ### V: nodes E: edges K: stops 
 # 1. while pq: designed to run for V*K times, due to relaxation the while pq reduces to E*K 
 # 2. log(V*K) heap stores(dist,node(V),stop(K)) and is unique for (V*K) at max can store upto V*K 
