@@ -1,5 +1,11 @@
 # 13. Roman to Integer
 
+# edge: 
+
+# s = "VI" output = 6 5+1
+# s = "IV" output = 4 5-1
+# s = "" output = 0
+
 # Time Complexity: O(n)
 # - We traverse the string once, and each dictionary lookup is O(1).
 
