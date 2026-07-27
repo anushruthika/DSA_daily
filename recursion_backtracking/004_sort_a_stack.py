@@ -1,3 +1,5 @@
+# https://www.geeksforgeeks.org/problems/reverse-a-stack/1
+
 # this problem is not divide and conquer(eg: merge sort divide into half but here decarese by one.)
 # thus # decrease-and-conquer (or decrease by one).
 
