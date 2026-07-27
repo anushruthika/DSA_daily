@@ -2,33 +2,31 @@
 
 # TC: O(n)
 # SC: O(n)
-# consider edge case:
-# s = "badc" t = "baba" reason to create vals
 
+# d = {'e':'a', 'g':'d'}
+# edge case: 
+# s = 'badc' t = 'efft'
+# d = {b:e, a:f, d:f, c:t}
+# Thus need a set or d.values() to track the mapping of t->s
+from collections import defaultdict
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        #  track mapping of key & values
-        d = {}
-        # track values
-        vals = set()
-        i = 0
-        # j = 0
-        n1 = len(s)
-        n2 = len(t)
-        if n1!=n2:
+        len_string1 = len(s)
+        len_string2 = len(t)
+        # edge case: strings are not of same size
+        if len_string1 != len_string2:
             return False
-        while i<n1:
-            # no need i<n1 and j<n2: as n1 n2 are same
-            if s[i] not in d:
-                if t[i] in vals:
-                    return False
-                d[s[i]] = t[i]
-                vals.add(t[i])
-            # s[i] is in d thus no need to check here as the oppposite condition was captured above
-            elif d[s[i]]!=t[i]:
+        d = defaultdict(str)
+        # s = set()
+        for i in range(len_string1):
+            if (s[i] in d and d[s[i]]!=t[i]) or (s[i] not in d and t[i] in d.values()):
                 return False
-            i+=1
+            # if s[i] in d and d[s[i]]==t[i]:
+            #     pass
+            if s[i] not in d and t[i] not in d.values():
+                d[s[i]] = t[i]
         return True
+
 
             
 
