@@ -38,16 +38,15 @@ class Solution:
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-
-        if len(s) != len(t):
+        n = len(s)
+        if n != len(t):
             return False
-
-        freq = [0] * 26
-
-        for c in s:
-            freq[ord(c) - ord('a')] += 1
-
-        for c in t:
-            freq[ord(c) - ord('a')] -= 1
-
-        return all(x == 0 for x in freq)
+        L = [0]*26 
+        for i in s:
+            L[ord(i)-ord('a')]+=1
+        for j in t:
+            val = ord(j) - ord('a')
+            if L[val] == 0:
+                return False
+            L[val]-=1
+        return True
