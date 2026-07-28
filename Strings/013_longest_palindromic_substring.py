@@ -7,6 +7,19 @@
 # | Expand Around Center | `O(n²)` | `O(1)`  | Two Pointers                          |
 # | Manacher's           | `O(n)`  | `O(n)`  | String Algorithm / Symmetry Algorithm |
 
+# edge case:
+# CASE 1: 
+# odd case: 
+# s = "babad"  output=bab
+# even case:
+# s = "cbbd" output= bb
+
+# len(s) == 0
+# s = "" output = ""
+# len(s) == 1
+# s = "a" output= "a"
+
+
 # Brute force TC: O(n**3) SC: O(n)
 class Solution:
     def longestPalindrome(self, s: str) -> str:
@@ -23,6 +36,21 @@ class Solution:
                 j+=1
             i+=1
         return ans
+
+# Brute force For loop:
+class Solution:    
+    def longestPalindrome(self, s: str) -> str:
+        n = len(s)
+        if n==0 or n==1:
+            return s
+        width = 0
+        for i in range(n):
+            for j in range(i,n):
+                if width<j-i+1 and s[i:j+1] == s[i:j+1][::-1]:
+                    ans = s[i:j+1]
+                    width=j-i+1
+        return ans
+            
 
 # Expand around center
 class Solution:
