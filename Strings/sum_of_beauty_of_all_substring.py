@@ -34,4 +34,30 @@ class Solution:
         return count
 
 
+
+class Solution:
+    def second_min(self,freq):
+        # O(26)
+        min_ = float('inf')
+        for i in freq:
+            if i>0:
+               min_ = min(i,min_) 
+        return min_
+            
+    def beautySum(self, s: str) -> int:
+        n = len(s)
+        # if n == 0 or n == 1 or n==2:
+        count = 0
+        if n<=2:
+            return 0
+        for i in range(0,n-2):
+            freq = [0]*26
+            for j in range(i,n):
+                freq[ord(s[j])-ord('a')]+=1
+                count+=max(freq) - self.second_min(freq)
+        return count
+
+
+
+
         
