@@ -11,6 +11,17 @@ class Solution:
         return count
 
 #best solution
+# edge case: 
+# 1. s = "" output = 0
+# 2. s = "a" output = 0
+# 3. s = "ab" output = 0 beauty
+# s = "aa" output= 2- no min =0
+# Outer loop : O(n)
+# Inner loop : O(n)
+# max/min    : O(k)
+
+# Total = O(n² × k)
+#  k = 26 Total = O(n² × 26) = O(n²)
 class Solution:
     def beautySum(self, s: str) -> int:
         count=0
