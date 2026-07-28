@@ -1,3 +1,4 @@
+# https://www.geeksforgeeks.org/problems/power-set4302/1   wont work wrong lexographical sorting
 
 ## time complexity :n**2 * 2**n
 ## space complexity : n · 2ⁿ
