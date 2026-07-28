@@ -53,6 +53,7 @@ class Solution:
             
 
 # Expand around center
+TC: O(n**2) Sc: O(n)
 class Solution:
     def expand_from_center(self,left,right,s):
         while left>=0 and right<len(s) and s[left] == s[right]:
@@ -71,3 +72,30 @@ class Solution:
             if len(max_str) < len(even):
                 max_str = even
         return max_str
+
+# TC:O(n**2) SC:O(1)
+class Solution: 
+    def expand_from_center(self,s,left,right):
+        while left>=0 and right<len(s) and s[left] == s[right]:
+            left-=1
+            right+=1
+        return right-left-1,right-1,left+1
+    def longestPalindrome(self, s: str) -> str:
+        n = len(s)
+        if n==0 or n==1:
+            return s
+        ans_left = 0
+        ans_right = 0
+        for center in range(n):
+            len_odd,ro,lo = self.expand_from_center(s,center,center)
+            len_even,re,le = self.expand_from_center(s,center,center+1)
+            if len_odd > ans_right-ans_left+1:
+                ans_right = ro
+                ans_left = lo
+            if len_even > ans_right-ans_left+1:
+                ans_right = re
+                ans_left = le
+        return s[ans_left:ans_right+1]
+
+
+
