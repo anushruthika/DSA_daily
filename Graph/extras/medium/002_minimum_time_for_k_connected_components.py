@@ -1,5 +1,6 @@
 # 3608. Minimum Time for K Connected Components
-
+# Time: O(ElogE+Eα(n))≈O(ElogE)
+# Space: O(n)
 class Solution:
     class DSU:
         def __init__(self,n:int):
