@@ -48,6 +48,12 @@
 			# O(V+2E) = O(V+E)
 
 
+# for fully connected graph:
+# E=V(V−1)/2
+# 	​which is E=O(V^2)
+
+
+
 # https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
 
 
