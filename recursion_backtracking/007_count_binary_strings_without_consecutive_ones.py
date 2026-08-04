@@ -1,3 +1,5 @@
+# https://www.geeksforgeeks.org/problems/consecutive-1s-not-allowed1912/1
+
 #  TC: O(n*2**n) O(n) for generating new string every time
 # sc:auxillary : O(n) recursion stack
 # additional space if needed: O(n**2) every time new string created.
