@@ -1,5 +1,7 @@
 # https://www.geeksforgeeks.org/problems/power-set4302/1   wont work wrong lexographical sorting
 
+# https://takeuforward.org/data-structure/learn-all-patterns-of-subsequences-theory
+
 ## time complexity :n**2 * 2**n
 ## space complexity : n · 2ⁿ
 # | Space Type                                  | Complexity    |
