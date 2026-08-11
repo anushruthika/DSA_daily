@@ -1,4 +1,5 @@
 # 198. House Robber
+#  Maximum sum of non adjacent elements
 
 # | Approach               | Time Complexity | Space Complexity | Why                                                                       |
 # | ---------------------- | --------------: | ---------------: | ------------------------------------------------------------------------- |
