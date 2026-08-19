@@ -1,4 +1,5 @@
 # 416. Partition Equal Subset Sum
+# follow : to understand DP behind isSubsetSum: https://github.com/anushruthika/DSA_daily/blob/main/DP/012_subset_sum_problem.py
 
 class Solution:
     def isSubsetSum(self, arr: list[int], target: int) -> bool:
