@@ -17,10 +17,8 @@ class Solution:
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
         
-        # result
-        if left is None:
-            return right
-        elif right is None:
-            return left
-        else: # Both left and right are not null, we found our result
+        if left and right:
             return root
+        if left:
+            return left
+        return right
