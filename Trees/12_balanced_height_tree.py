@@ -1,7 +1,23 @@
 # 110. Balanced Binary Tree
 # Time: O(n), Space: O(h) (worst O(n), best O(log n))
 
+class Solution:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        def dfs(cur):
+            if cur:
+                left = dfs(cur.left)
+                right = dfs(cur.right)
+                if left == -1 or right == -1 or abs(left-right)>1:
+                    return -1
+                return 1+max(left,right)
+            else:
+                return 0
+        if dfs(root) == -1:
+            return False
+        return True
 
+
+# full approach
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
