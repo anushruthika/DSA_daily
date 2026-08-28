@@ -1,5 +1,9 @@
 # 700. Search in a Binary Search Tree
 
+# BST: Cant have duplicates but in real world people started using duplicates:
+# Left-Side Convention: Left Child <= Root < Right ChildRight-Side Convention: Left Child < Root <= Right Child
+
+
 # Time: O(h) => follow one path using BST property (worst O(n), best O(log n))
 # Space: O(1) => iterative, no extra space used
 # Definition for a binary tree node.
