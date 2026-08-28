@@ -1,3 +1,21 @@
+# https://www.geeksforgeeks.org/problems/kth-largest-element-in-bst/1
+class Solution:
+    def kthLargest(self, root, k):
+        if root:
+            cur = root
+            stack = []
+            count = 0
+            while cur or stack:
+                if cur:
+                    stack.append(cur)
+                    cur = cur.right
+                else:
+                    count+=1
+                    cur = stack.pop()
+                    if count == k:
+                        return cur.data
+                    cur = cur.left
+        return None
 
 # 230. Kth Smallest Element in a BST
 
