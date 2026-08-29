@@ -1,6 +1,7 @@
 
 # 173. Binary Search Tree Iterator
 
+# One operation can occasionally be expensive, but if you look at the total cost of many operations, the average cost per operation is O(1).
 # Time: O(1) amortized per next() / hasNext() => each node is pushed and popped at most once (total O(n) over all operations)
 # Space: O(h) => stack stores path from root to current node (worst O(n), best O(log n))
 
