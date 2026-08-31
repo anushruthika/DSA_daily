@@ -1,4 +1,19 @@
 # https://www.geeksforgeeks.org/problems/articulation-point-1/1
+
+# If:
+
+# low[child] >= disc[node]
+
+# the child's subtree cannot reach an ancestor of node.
+
+# Therefore, removing node disconnects that subtree → Articulation Point.
+
+# For a bridge, even reaching node itself isn't possible through a back edge:
+
+# low[child] > disc[node]
+
+# Therefore removing the edge disconnects the graph → Bridge.
+    
 # Time Complexity : O(V + E)
 # Space Complexity: O(V)
 class Solution:
