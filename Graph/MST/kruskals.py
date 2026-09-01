@@ -1,3 +1,5 @@
+# https://www.geeksforgeeks.org/problems/minimum-spanning-tree-kruskals-algorithm/1
+
 # Time Complexity: O(E log E)
 # Space Complexity: O(V)
 
