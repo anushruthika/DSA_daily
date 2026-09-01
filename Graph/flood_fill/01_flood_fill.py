@@ -30,16 +30,18 @@ class Solution:
 # Space: O(m * n) => recursion stack in worst case (grid fully connected), best O(1) to O(log n) depending on shape
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
-        org = image[sr][sc]
-        def flood_fill(x,y):
-            # if not (0<=x<m and 0<=y<n and image[x][y] == prev_color):
-            if (x < 0 or x >= len(image)) or (y < 0 or y >= len(image[0])) or (image[x][y] == color) or (image[x][y] != org): 
+        lr = len(image)
+        lc = len(image[0])
+        org_color = image[sr][sc]
+        if org_color == color:
+            return image
+        def dfs(x,y):
+            if not (0<=x<lr and 0<=y<lc and image[x][y]== org_color):
                 return
             image[x][y] = color
-            flood_fill(x-1, y)
-            flood_fill(x+1, y)
-            flood_fill(x, y+1)
-            flood_fill(x, y-1)
-        if org!=color:
-            flood_fill(sr, sc)
+            dfs(x-1,y)
+            dfs(x,y-1)
+            dfs(x+1,y)
+            dfs(x,y+1) 
+        dfs(sr,sc)
         return image
