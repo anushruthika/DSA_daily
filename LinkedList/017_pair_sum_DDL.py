@@ -35,25 +35,20 @@ class Solution:
 # SC: O(1)
 # Ignoring output list
 
-from typing import Optional
-from typing import List
 class Solution:
-    def findPairsWithGivenSum(self, target : int, head : Optional['Node']) -> List[List[int]]:
+    def givenSumPairs(self, head, target):
         left = head
         right = head
-        res = []
-        while right.next:
+        ans = []
+        while right.next and right.next.data<=target:
             right = right.next
         while left.data<right.data:
-            sum_ = left.data+right.data
-            if sum_ == target:
-                res.append([left.data,right.data])
+            if left.data+right.data == target:
+                ans.append([left.data,right.data])
                 left = left.next
                 right = right.prev
-            elif sum_ < target:
-                left = left.next
+            elif left.data+right.data>target:
+                right = right.prev
             else:
-                right = right.prev
-        return res
-            
-             
+                left = left.next
+        return ans
