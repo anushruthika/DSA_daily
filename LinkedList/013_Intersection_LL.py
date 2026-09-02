@@ -4,6 +4,13 @@
 # SC: O(1) 
 # n = length of list A
 # m = length of list B
+
+# a: length of headA to reach intersection
+# b: length of headB to reach intersection
+# c: length of common path after intersection
+
+# a + c + b = b + c + a
+
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         curA=headA
