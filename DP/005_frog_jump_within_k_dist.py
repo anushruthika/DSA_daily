@@ -1,4 +1,6 @@
 # https://www.naukri.com/code360/problems/minimal-cost_8180930
+# formula: 
+# DP[index] = jump:1->k given=> jump<index min( DP[index-jump] + abs(heights[index-jump] - heights[index]) )
 
 
 from typing import *
