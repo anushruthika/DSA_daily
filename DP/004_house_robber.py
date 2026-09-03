@@ -1,6 +1,10 @@
 # 198. House Robber
 #  Maximum sum of non adjacent elements
 
+
+# DP[index] = max(DP[index-1], nums[index]+DP[index-2])
+
+
 # | Approach               | Time Complexity | Space Complexity | Why                                                                       |
 # | ---------------------- | --------------: | ---------------: | ------------------------------------------------------------------------- |
 # | **1. Recursion**       |       **O(2ⁿ)** |         **O(n)** | Each state branches into `i-1` and `i-2`; recursion stack can go `n` deep |
