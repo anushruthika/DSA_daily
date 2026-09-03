@@ -9,6 +9,8 @@
 # | Space Optimized | **O(n)**  | **O(1)**                              |
 
 
+# DP[n] = min( DP[n-1]+abs(height[n],height[n-1]) , DP[n-2]+abs(height[n],height[n-2])  )
+
 # edge case :
 # heights = [10] op = 0
 # heights = [] op = invalid case
