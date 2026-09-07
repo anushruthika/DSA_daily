@@ -37,6 +37,28 @@
 #                 take = rec(index-1,target-arr[index])
 #             return not_take or take
 #         return rec(len(arr)-1,sum)
+
+
+
+# Short form:
+class Solution:
+    def isSubsetSum(self, arr: list[int], sum: int) -> bool:
+        DP = [[None]*(sum+1) for _ in range(len(arr))]
+        def rec(index,target):
+            if DP[index][target] is not None:
+                return DP[index][target]
+            if target == 0:
+                return True
+            if index == 0:
+                if arr[0] == target:
+                    DP[index][target] = True
+                    return DP[index][target]
+                DP[index][target] = False
+                return DP[index][target]
+            DP[index][target] = rec(index-1,target) or ((target-arr[index]>=0) and rec(index-1,target-arr[index]))
+            return DP[index][target]
+        return rec(len(arr)-1,sum)
+        
         
 # # Memoization
 # class Solution:
