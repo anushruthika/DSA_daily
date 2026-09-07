@@ -99,6 +99,17 @@ class Solution:
 #                     take = DP[ind-1][target-arr[ind]]
 #                 DP[ind][target] = take or not_take
 #         return DP[n-1][sum]
+class Solution:
+    def isSubsetSum(self, arr: list[int], sum: int) -> bool:
+        DP = [[False]*(sum+1) for _ in range(len(arr))]
+        for r in range(len(arr)-1):
+            DP[r][0] = True
+        DP[0][arr[0]] = True
+        for r in range(1,len(arr)):
+            for c in range(1,sum+1):
+                DP[r][c] = DP[r-1][c] or c-arr[r]>=0 and DP[r-1][c-arr[r]]
+        return DP[len(arr)-1][sum]
+
 
 # Space complexity reduction
 class Solution:
@@ -118,6 +129,15 @@ class Solution:
                 if target>=arr[ind]:
                     take = DP[target-arr[ind]]
                 DP[target] = take or not_take
+        return DP[sum]
+
+class Solution:
+    def isSubsetSum(self, arr: list[int], sum: int) -> bool:
+        DP = [False]*(sum+1)
+        DP[0] = True
+        for r in range(len(arr)):
+            for c in range(sum,0,-1):
+                DP[c] = DP[c] or c-arr[r]>=0 and DP[c-arr[r]]
         return DP[sum]
         
 
