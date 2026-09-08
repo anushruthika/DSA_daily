@@ -1,5 +1,35 @@
 # https://www.geeksforgeeks.org/problems/perfect-sum-problem5633/1
 
+
+# Memoization
+# class Solution:
+#     def perfectSum(self, arr, target):
+#         n = len(arr)
+#         DP = [[-1]*(target+1) for _ in range(n)]
+#         def rec(index,target):
+#             if DP[index][target]!=-1:
+#                 return DP[index][target]
+#             if index == 0:
+#                 if target == 0 and arr[0] == 0:
+#                     DP[index][target] = 2
+#                     return DP[index][target]
+
+#                 if target == 0 or arr[0] == target:
+#                     DP[index][target] = 1
+#                     return DP[index][target]
+
+#                 DP[index][target] = 0
+#                 return DP[index][target]
+#             left = rec(index-1,target) 
+#             right = 0
+#             if (target-arr[index]>=0) :
+#                 right = rec(index-1,target-arr[index])
+#             DP[index][target] = left+right
+#             return DP[index][target]
+#         return rec(n-1,target)
+            
+
+
 # class Solution:
 #     def perfectSum(self, arr, target):
 #         n = len(arr)
