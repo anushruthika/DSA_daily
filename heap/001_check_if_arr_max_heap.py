@@ -1,5 +1,20 @@
 # https://www.geeksforgeeks.org/problems/does-array-represent-heap4345/1
 
+# TC:o(n) SC: O(1)
+class Solution:
+    def isMaxHeap(self, arr):
+        n = len(arr)
+        for i in range(n):
+            left = 2*i+1
+            right = 2*i+2
+            if left<n and arr[left]>arr[i]:
+                return False
+            if right<n and arr[right]>arr[i]:
+                return False
+        return True
+        
+        
+
 # TC:o(n) SC: O(n)
 from collections import deque
 class Solution:
