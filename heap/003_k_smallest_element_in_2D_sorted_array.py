@@ -1,3 +1,5 @@
+# 378. Kth Smallest Element in a Sorted Matrix
+
 # TC:  O(N+klogN)
 # SC: O(N)
 # global row-wise sorting: eg: [[1,2],[1,3]] k=2 output: 1
