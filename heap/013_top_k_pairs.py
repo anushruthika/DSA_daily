@@ -12,6 +12,7 @@ class Solution:
         pq = []
         # largest possible combination
         heapq.heappush(pq,(-(a[0]+b[0]),0,0))
+        # to avoid duplicates: example: (0,1) gives (1,1) and (1,0) gives (1,1)
         visited = set()
         visited.add((0,0))
         res = []
