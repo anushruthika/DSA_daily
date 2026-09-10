@@ -11,6 +11,7 @@ class Solution:
             arr.extend(row)
         print(arr)
         heapq.heapify(arr)
+        O(klog (n**2)) = O(2klogn) = O(klogn)
         while k>1:
             heapq.heappop(arr)
             k-=1
