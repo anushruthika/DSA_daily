@@ -110,28 +110,25 @@ class Solution:
 
 ############################ GREEDY NAIVE APPROACH
 # TC: O(n log n + n * max_deadline)
-# SC: # SC: O(max_deadline)
-
-import heapq
+# SC: O(max_deadline)
 class Solution:
     def jobSequencing(self, deadline, profit):
-        jobs = []
-        for i in range(len(profit)):
-            jobs.append((profit[i],deadline[i]))
-        jobs.sort(reverse= True)
-        count =0
-        tot = 0
-        arr = [False]*max(deadline)
-        for p,d in jobs:
-            # print(p,d,arr,count,tot)
-            while d-1>=0:
-                if not arr[d-1]:
-                    arr[d-1] = p
+        
+        job = list(zip(profit,deadline))
+        n = len(profit)
+        maxDeadline = max(deadline)
+        ans = [0]*maxDeadline
+        job.sort(reverse=True)
+        count = 0
+        for i in range(n):
+            p,d = job[i][0],job[i][1]-1
+            for j in range(d,-1,-1):
+                if ans[j]==0:
+                    ans[j] = p
                     count+=1
-                    tot+=p
                     break
-                d -=1
-        return [count,tot]
+            
+        return [count,sum(ans)]
 
 
 ############################# DSU
