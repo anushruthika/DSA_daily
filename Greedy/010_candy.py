@@ -28,9 +28,14 @@ class Solution:
 ##################### GREEDY : OPTIMAL
 # TC: O(n)
 # SC: O(1)
-# edge cases : [1]
+# edge cases : 
+# single element
+# [1]
+# same slope
 # [1,1,1,1]
+# increasing slope
 # [1,2,3,4]
+# decreasing slope
 # [4,3,2,1]
 # [1,2,3,2,1]
 # [1,2,3,4,3,2,1,0]   # peak correction
