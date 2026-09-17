@@ -2,20 +2,22 @@
 
 ### OPTIMAL BINARY SEARCH similar to sqrt.
 # TC:O(logn) SC:O(1)
+# TC:O(log(n/2)) SC:O(1)
 class Solution:
-    def nthRoot(self, n, x):
+    def nthRoot(self, n, m):
+        if m == 0 or m ==1 or n ==1:
+            return m
        # code here
-        if x ==0 or x ==1:
-            return x
         low = 1
-        high = x
+        high = m//2+1
         while low<=high:
             mid = low+(high-low)//2
-            val = mid**n
-            if val == x:
+            root = mid**n
+            if root == m:
                 return mid
-            elif val<x:
-                low = mid+1
-            elif val>x:
+            elif root>m:
                 high = mid-1
+            else:
+                low = mid+1
         return -1
+            
