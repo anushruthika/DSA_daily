@@ -1,6 +1,6 @@
 # TC: O(log n)
 # SC: O(1)
-# same lower bound but return high
+# same upper bound but return high
 class Solution:
     def findFloor(self, arr, x):
         low = 0
