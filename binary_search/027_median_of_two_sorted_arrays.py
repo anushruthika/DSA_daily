@@ -14,6 +14,41 @@ class Solution:
         else:
             return round((nums1[(x//2)-1]+nums1[(x//2)])/2,5)
 
+# better approach
+class Solution(object):
+    def findMedianSortedArrays(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: float
+        """
+        res= []
+        i = 0
+        j = 0
+        k = 0
+        n = len(nums1)+len(nums2)
+        n_ = n//2 + 1
+        while i<len(nums1) and j<len(nums2) and k<n_:
+            if nums1[i]<= nums2[j]:
+                res.append(nums1[i])
+                i+=1
+            else:
+                res.append(nums2[j])
+                j+=1
+            k+=1
+        while i<len(nums1) and k<n_:
+            res.append(nums1[i])
+            i+=1
+            k+=1
+        while j<len(nums2) and k<n_:
+            res.append(nums2[j])
+            j+=1
+            k+=1
+        if n%2 == 0:
+            return (res[n//2-1] + res[n//2]) / 2.0
+        else:
+            return res[n//2]
+
 
 ####### OPTIMAL
 # Binary search on the smaller array to find a partition such that all elements on the left are less than or equal to all elements on the right; 
