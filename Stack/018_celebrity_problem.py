@@ -18,22 +18,28 @@ class Solution:
 # TC : O(n) SC: O(n) n=len(mat)
 class Solution:
     def celebrity(self, mat):
-        # code here
         n = len(mat)
-        stack = []
-        for i in range(n):
-            stack.append(i)
-        while len(stack)>=2:
-            a = stack.pop()
-            b = stack.pop()
-            if mat[a][b]:
-                stack.append(b)
+        # code here
+        top = 0
+        down = n-1
+        while top<down:
+            if mat[top][down] == 1:
+                top+=1
+            elif mat[down][top] == 1:
+                down-=1
             else:
-                stack.append(a)
-        c = stack.pop()
-        for i in range(len(mat)):
-            if c == i:
+                top+=1
+                down-=1
+                
+        if top>down:
+            return -1
+        # else top == down
+        for i in range(0,n):
+            if i==top:
                 continue
-            if mat[c][i] or not mat[i][c]:
+            if mat[top][i] !=0:
                 return -1
-        return c
+            
+            if mat[i][top] !=1:
+                return -1
+        return top
