@@ -1,6 +1,7 @@
 # 239. Sliding Window Maximum
 
 # idea : monotonic decreasing queue (monotonic means always moving in 1D- either increasing or decreasing)
+#  we need double ended queue to perform removal from back and front
 # TC: O(n)
 # SC: O(n) => # Auxiliary SC: O(k) (excluding output array)
 class Solution:
