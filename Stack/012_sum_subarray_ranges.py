@@ -1,5 +1,7 @@
 # 2104. Sum of Subarray Ranges
 
+# nse pse nge pge and this technique helps in keeping track of which element contributes to minimum and maximum
+
 # TC: O(n)
 # SC: O(n)
 class Solution:
