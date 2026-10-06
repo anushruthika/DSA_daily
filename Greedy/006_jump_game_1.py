@@ -1,5 +1,30 @@
 # 55. Jump Game
 
+# O(n)
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n ==1:
+            return True
+            # return 0
+        left = 0
+        right = 0
+        maxInd = 0
+        steps = 0
+        while left<=n and left<=right:
+            if maxInd>=n-1:
+                return True
+                # return steps
+            for i in range(left,right+1):
+                maxInd = max(maxInd,i+nums[i])
+            left = right+1
+            right = maxInd
+            steps+=1
+        return False
+
+
+
+
 ############### BRUTE FORCE
 # TC: O(2^n) (exponential)
 # SC: O(n) recursion stack
