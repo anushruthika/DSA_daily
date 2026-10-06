@@ -1,4 +1,6 @@
 # https://www.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1
+# Aprproach 1: GREEDY : Pick the highest-profit job first, then try to give it the latest available day before its deadline.
+# APPROACH 2: HEAP : Process jobs by increasing deadline, and maintain the best-profit jobs that can fit within those deadlines.
 
 # EDGE CASE
 # | Job ID | Deadline | Profit |
