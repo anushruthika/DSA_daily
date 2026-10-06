@@ -130,6 +130,22 @@ class Solution:
             
         return [count,sum(ans)]
 
+# HEAP O(nlogn) OPTIMAL
+import heapq
+
+class Solution:
+    def jobSequencing(self, deadline, profit):
+        jobs = sorted(zip(deadline, profit))
+        heap = []
+
+        for d, p in jobs:
+            heapq.heappush(heap, p)
+
+            if len(heap) > d:
+                heapq.heappop(heap)
+
+        return [len(heap), sum(heap)]
+
 
 ############################# DSU
 # TC: O(n log n)
