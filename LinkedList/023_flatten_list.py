@@ -31,16 +31,60 @@ class Solution:
         tail.bottom = l1 if l1 else l2
 
         return dummy.bottom
+    ''' Structure of Linked List Node
+class Node:
+    def __init__(self, d):
+        self.data=d
+        self.next=None
+        self.bottom=None
         
+'''
+class Solution:
+    def merge(self, l1,l2):
+        dummyNode = Node(0)
+        cur = dummyNode
+        while l1 and l2:
+            if l1.data<l2.data:
+                cur.bottom = l1
+                l1 = l1.bottom
+            else:
+                cur.bottom = l2
+                l2 = l2.bottom
+            cur = cur.bottom
+        cur.bottom = l1 or l2
+        return dummyNode.bottom
     def flatten(self, root):
         if not root or not root.next:
             return root
+
+        # Find the middle of the horizontal list
+        slow = root
+        fast = root.next
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+        right = slow.next
+        slow.next = None
+
+        # Flatten both halves
+        left = self.flatten(root)
+        right = self.flatten(right)
+
+        # Merge the two halves
+        return self.merge(left, right)
+            
+        
+    # def flatten(self, root):
+    #     if not root or not root.next:
+    #         return root
     
-        root.next = self.flatten(root.next)
+    #     root.next = self.flatten(root.next)
     
-        root = self.mergeSort(root, root.next)
+    #     root = self.mergeSort(root, root.next)
     
-        return root
+    #     return root
         
 
 ############## plain joining of lists
