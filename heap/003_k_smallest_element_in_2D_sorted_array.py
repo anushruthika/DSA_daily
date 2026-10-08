@@ -1,7 +1,9 @@
 # 378. Kth Smallest Element in a Sorted Matrix
 
-# TC:  O(N+klogN)
-# SC: O(N)
+# HEAP: TC: O(n² + k log n)
+# BS: TC: O(n log(max-min))  # 032_kth_smallest_element_in_a_row_wise_sorted_matrix.py 
+
+
 # global row-wise sorting: eg: [[1,2],[1,3]] k=2 output: 1
 import heapq
 class Solution:
