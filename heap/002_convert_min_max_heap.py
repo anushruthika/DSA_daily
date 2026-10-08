@@ -1,3 +1,5 @@
+# https://www.naukri.com/code360/problems/convert-min-heap-to-max-heap_1381084
+
 # online gdb
 # TC: O(n) SC: O(n)
 pq = [-x for x in arr]
