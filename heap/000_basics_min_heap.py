@@ -3,7 +3,13 @@
 # max_heap: child<parent
 
 # node: i 
-# parent: i//2, left: 2*i+1, right: 2*i+2 for 1-based indexing
+# parent: i//2, left: 2*i, right: 2*i+1 for 1-based indexing
+
+# zero-based indexing
+# node: i
+# Parent:      (i - 1) // 2
+# Left child:  2*i + 1
+# Right child: 2*i + 2
 
 # insert delete in minheap
 class minHeap:
