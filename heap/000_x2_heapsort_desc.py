@@ -1,5 +1,5 @@
 # min heap to sort desc
-
+# O(n log n)
 def min_heapify(arr,n,node):
   while True:
     left = 2*node+1
