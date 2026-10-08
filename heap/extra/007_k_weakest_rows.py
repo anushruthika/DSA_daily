@@ -1,5 +1,5 @@
 # 1337. The K Weakest Rows in a Matrix
-TC:O(nlogn) n>k
+TC:O(n**2logn) n>k
 SC:O(n)
 import heapq
 class Solution:
