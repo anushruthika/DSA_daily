@@ -10,6 +10,29 @@ class Node:
         self.right = None
 '''
 
+from collections import defaultdict
+class Solution:
+    def topView(self, root):
+        d = defaultdict(list) # d[col] = (row,val)
+        def dfs(node,r,c):
+            if node:
+                d[c].append((r,node.data))
+                if node.left:
+                    dfs(node.left,r+1,c-1)
+                if node.right:
+                    dfs(node.right,r+1,c+1)
+        dfs(root,0,0)
+        res = []
+        for col in sorted(d.keys()):
+            temp = sorted(d[col],key = lambda x:x[0])
+            res.append(temp[0][1])
+        return res
+
+
+
+        
+        
+
 class Solution:
     def dfs(self, root, d:dict, cur):
         row, col = cur
