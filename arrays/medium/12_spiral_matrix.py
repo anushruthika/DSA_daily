@@ -1,4 +1,7 @@
 # 54. Spiral Matrix
+
+# eg: [1,2,3] here top = 0 after traversal become top = 1 without "if top<=down:" in line 28 the array will again be added to res
+
 class Solution:
     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         m = len(matrix)
