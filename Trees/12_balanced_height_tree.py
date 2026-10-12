@@ -2,19 +2,17 @@
 # Time: O(n), Space: O(h) (worst O(n), best O(log n))
 
 class Solution:
-    def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        def dfs(cur):
-            if cur:
-                left = dfs(cur.left)
-                right = dfs(cur.right)
-                if left == -1 or right == -1 or abs(left-right)>1:
-                    return -1
-                return 1+max(left,right)
-            else:
-                return 0
-        if dfs(root) == -1:
-            return False
-        return True
+    def dfs(self,node):
+        if not node:
+            return 0
+        lh = self.dfs(node.left)
+        rh = self.dfs(node.right)
+        if lh == -1 or rh == -1 or abs(lh-rh)>1:
+            return -1
+        return max(lh,rh)+1
+
+    def isBalanced(self, root: TreeNode | None) -> bool:
+        return self.dfs(root)!=-1
 
 
 # full approach
