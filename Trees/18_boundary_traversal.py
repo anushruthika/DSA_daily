@@ -1,4 +1,14 @@
 # https://www.geeksforgeeks.org/problems/boundary-traversal-of-binary-tree/1
+
+# Points to remember:
+# append root first
+# go towards left tree dont append leaf
+# iterate left tree & right tree seperately to find leaves
+# go towards right tree dont append leaf
+
+
+
+
 class Solution:
     def isleaf(self,root,res):
         if root:
