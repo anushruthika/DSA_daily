@@ -2,6 +2,33 @@
 # Time: O(n log n) => DFS O(n) + sorting columns & each column elements
 # Space: O(n) => dictionary + recursion stack O(h)
 
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+from collections import defaultdict
+class Solution:
+    def verticalTraversal(self, root: TreeNode | None) -> list[list[int]]:
+        d = defaultdict(list) # d[col] = (row,val)
+        def dfs(node,r,c):
+            if node:
+                d[c].append((r,node.val))
+                if node.left:
+                    dfs(node.left,r+1,c-1)
+                if node.right:
+                    dfs(node.right,r+1,c+1)
+        dfs(root,0,0)
+        res = []
+        for col in sorted(d.keys()):
+            res.append([i[1] for i in sorted(d[col])])
+        return res
+
+
+
+
+
 class Solution:
 
     def dfs(self, root, d:dict, cur):
