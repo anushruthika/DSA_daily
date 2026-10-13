@@ -1,3 +1,5 @@
+# 31. Next Permutation
+
 class Solution:
     def nextPermutation(self, nums: list[int]) -> None:
         """
