@@ -10,9 +10,15 @@
 
 # Brute Force
 class Solution:
-    def findKthPositive(self, arr: List[int], k: int) -> int:
+    def findKthPositive(self, arr: list[int], k: int) -> int:
+        n = len(arr)
+        if n>=1 and arr[0]>k:
+            return k
+        # last index
+        if n>=1 and n == arr[-1]:
+            return n+k
         for i in arr:
-            if i<k:
+            if i<=k:
                 k+=1
             else:
                 break
