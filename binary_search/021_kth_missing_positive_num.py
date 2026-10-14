@@ -37,9 +37,9 @@ class Solution:
                 low = mid+1
             else:
                 high = mid-1
-        # high>k and low<k opposite polarity ending
         return high+k+1
 
+# very important
 # At the end of binary search:
 
 # high = last index where missing < k
