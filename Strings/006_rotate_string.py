@@ -1,5 +1,32 @@
 # 796. Rotate String
 
+class Solution(object):
+    def rotateString(self, s, goal):
+        """
+        :type s: str
+        :type goal: str
+        :rtype: bool
+        """
+        
+        i = 0
+        j = 0
+        n = len(goal)
+        if n != len(s):
+            return False
+        while j<(n*2):
+            if s[i] == goal[j%n]:
+                i+=1
+                if i == n:
+                    return True
+            else:
+                j = j-i
+                i=0
+            j+=1
+        return False
+            
+        
+
+
 # | Approach                         | Time      | Space    |
 # | -------------------------------- | --------- | -------- |
 # | Try every rotation (Brute Force) | **O(n²)** | **O(n)** |
