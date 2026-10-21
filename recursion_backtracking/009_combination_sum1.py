@@ -1,5 +1,7 @@
 # 39. Combination Sum
 
+# loop in recursion
+
 # Step	start	Candidate chosen	res_until_now	total	Action
 # 1	0	2	[2]	2	Recurse with start = 0
 # 2	0	2	[2,2]	4	Recurse with start = 0
