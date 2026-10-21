@@ -1,3 +1,5 @@
+# 22. Generate Parentheses
+
 # TC:  O(n*2**(2n)) = O(n*2**n) -> O(n): to generate new strings every time. can be ignored. but O(2**2*n) is to recurse and create list
 # SC: O(2**2*n)
 class Solution:
