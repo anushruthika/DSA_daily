@@ -1,5 +1,30 @@
 # https://www.geeksforgeeks.org/problems/consecutive-1s-not-allowed1912/1
 
+# DP solution
+class Solution:
+    def countStrings(self, n):
+        res = []
+        DP = {}
+        # code here 
+        def dfs(i,prev):
+            if (i,prev) in DP:
+                return DP[(i,prev)]
+            if i == n:
+                # res.append(word)
+                DP[(i,prev)] = 1
+                return DP[(i,prev)]
+            c = dfs(i+1,0)
+            if prev!=1:
+                c+=dfs(i+1,1)
+            DP[(i,prev)] = c
+            return DP[(i,prev)]
+        return dfs(0,-1)
+
+                
+
+
+
+
 #  TC: O(n*2**n) O(n) for generating new string every time
 # sc:auxillary : O(n) recursion stack
 # additional space if needed: O(n**2) every time new string created.
