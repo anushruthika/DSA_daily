@@ -10,6 +10,27 @@
 # | **3. 2D Tabulation** |    **O(N × C)** |     **O(N × C)** |
 # | **4. 1D Tabulation** |    **O(N × C)** |         **O(C)** |
 
+#  GREEDY but doesnot work for all cases
+# class Solution:
+#     def knapSack(self, val, wt, capacity):
+#         # code here
+#         # def dfs(ind,target):
+        
+#         arr = [(val[i]/wt[i],val[i],wt[i]) for i in range(len(val))]
+#         arr.sort(key = lambda x:x[0],reverse = True)
+#         cur_wt = 0
+#         cur_val = 0
+#         for i in range(len(val)):
+#             v,w = arr[i][1],arr[i][2]
+#             if w<=capacity-cur_wt:
+#                 no_items = (capacity-cur_wt)//w
+#                 print(no_items)
+#                 cur_wt +=  w*(no_items)
+#                 cur_val += v*(no_items)
+#             if cur_wt == capacity:
+#                 return cur_val
+#         return cur_val
+#         # dfs(0,capacity)
 
 # class Solution:
 #     def knapSack(self, val, wt, capacity):
