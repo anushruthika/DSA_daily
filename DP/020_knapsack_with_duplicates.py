@@ -11,6 +11,7 @@
 # | **4. 1D Tabulation** |    **O(N × C)** |         **O(C)** |
 
 #  GREEDY but doesnot work for all cases
+# eg: val = [13,10],wt = [4,3] greedy ans = 10, but ans = 13
 # class Solution:
 #     def knapSack(self, val, wt, capacity):
 #         # code here
