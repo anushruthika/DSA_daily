@@ -1,5 +1,18 @@
 # https://www.geeksforgeeks.org/problems/-minimum-number-of-coins4426/1
 
+# greedy:
+# class Solution:
+#     def findMin(self, n: int) -> int:
+#        # code here 
+#        ten = n//10
+#        five = (n-ten*10)//5 if (n-ten*10)>0 else 0
+#        two = (n-ten*10-five*5)//2 if (n-ten*10-five*5)>0 else 0
+#        one = (n-ten*10-five*5-two*2) if (n-ten*10-five*5-two*2)>0 else 0
+#        return ten+five+two+one
+
+
+
+
 # | Approach          |             Time |   Space | Why                                                |
 # | ----------------- | ---------------: | ------: | -------------------------------------------------- |
 # | **Recursion**     | `O(2^N)` approx. |  `O(N)` | Repeatedly explores take/not-take branches         |
