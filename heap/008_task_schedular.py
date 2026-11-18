@@ -1,3 +1,28 @@
+from collections import defaultdict
+from collections import deque
+import heapq
+class Solution:
+    def leastInterval(self, tasks: list[str], n: int) -> int:
+        freq = defaultdict(int)
+        for i in tasks:
+            freq[i]+=1
+        pq = []
+        for task,count in freq.items():
+            heapq.heappush(pq,(-count,task))
+        cooldown = deque()
+        slot = 0
+        while cooldown or pq:
+            slot+=1
+            while cooldown and cooldown[0][2]<=slot:
+                count, task, cur = cooldown.popleft()
+                heapq.heappush(pq,(count,task))
+            if pq:
+                count,task = heapq.heappop(pq)
+                if count+1<0:
+                    cooldown.append((count+1,task,slot+n+1))
+        return slot
+
+
 from collections import Counter
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
