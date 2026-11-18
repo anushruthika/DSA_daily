@@ -110,3 +110,50 @@
 
 # The chunk `"22"` is valid because it is even and between 10 and 26.
 
+
+
+MOD = 10**9 + 7
+from functools import lru_cache
+def solve(s):
+    N = len(s)
+    @lru_cache(None)
+    def rec(ind):
+        if ind >= N:
+            return 1
+        if s[ind] == "0":
+            return 0
+        left = rec(ind+1)
+        right = 0
+        if int(s[ind:ind+2])%2==0 and 10<=int(s[ind:ind+2])<=26 :
+            right = rec(ind+2)
+        return right+left 
+    return rec(0)
+
+
+tests = [
+    ("126", 3),
+    ("123", 2),
+    ("102", 1),
+    ("226", 3),
+    ("10", 1),
+    ("11", 1),
+    ("26", 2),
+    ("20", 1),
+    ("00", 0),
+    ("111", 1),
+    ("222", 3),
+    ("1234", 2)
+]
+
+for i, (s, expected) in enumerate(tests, 1):
+
+    result = solve(s)
+
+    status = "PASS" if result == expected else "FAIL"
+
+    print(f"Test Case {i}: {status}")
+    print(f"Input:    {s}")
+    print(f"Expected: {expected}")
+    print(f"Got:      {result}")
+    print("-" * 35)
+
