@@ -1,0 +1,14 @@
+64 32 16 8 4 2 1 => 2^6 2^5 2^4 2^3 2^2 2^1 2^0
+
+& bitwise AND
+| bitwise OR  
+~ bitwise NOT (flip)
+^ bitwise XOR (Toggle: both different True)
+
+left shift << , 001<<1: 010
+right shift >> , 001>>1: 000
+
+Create a bit mask: 1<<i essentially: (2^i).  EG:mask =  1<<2 => 0100
+Apply mask: N = 10 => 1010 N&mask => EG: 1010&0100 => 0000 => The result is 0, meaning bit i=2 was OFF.
+
+check if number odd or not: N & (1 << 0) (last bit is set or not)
