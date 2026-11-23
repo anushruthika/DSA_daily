@@ -104,47 +104,109 @@
 
 class Solution:
     def maxPoints(self, N, W, matrix):
-        # Write your logic here
-        pass
+        
+        def func(ind,w_left):
+            if ind == N-1:
+                if w_left>0:
+                    return matrix[ind][0]
+                elif matrix[ind][1] == 1:
+                    return float('-inf')
+                return 0
+            if w_left<0:
+                return float('-inf')
+            if w_left == 0 and matrix[ind][1] == 1:
+                return float('-inf')
+            take = float('-inf')
+            if w_left>0:
+                take = matrix[ind][0] + func(ind+1,w_left-1)
+            not_take = float('-inf')
+            if matrix[ind][1] != 1: 
+                not_take = func(ind+1,W-1)
+            return max(take,not_take)
+        return max(-1,func(0,W-1))
 
 
-# Sample test cases
 test_cases = [
+    # W = 1: every night must be rest, so safe nights earn 0
     {
-        "N": 5,
-        "W": 2,
-        "matrix": [
-            [5, 0],
-            [1, 0],
-            [4, 1],
-            [3, 0],
-            [6, 0]
-        ],
-        "expected": 15
+        "N": 1,
+        "W": 1,
+        "matrix": [[7, 0]],
+        "expected": 0
     },
     {
-        "N": 4,
-        "W": 3,
-        "matrix": [
-            [3, 0],
-            [8, 0],
-            [2, 0],
-            [7, 0]
-        ],
-        "expected": 18
+        "N": 1,
+        "W": 1,
+        "matrix": [[7, 1]],
+        "expected": -1
+    },
+
+    # W = N
+    {
+        "N": 2,
+        "W": 2,
+        "matrix": [[3, 0], [8, 0]],
+        "expected": 8
     },
     {
         "N": 3,
-        "W": 1,
-        "matrix": [
-            [5, 0],
-            [4, 1],
-            [6, 0]
-        ],
-        "expected": -1
-    }
-]
+        "W": 3,
+        "matrix": [[1, 0], [5, 0], [4, 0]],
+        "expected": 9
+    },
+    {
+        "N": 4,
+        "W": 4,
+        "matrix": [[10, 0], [2, 0], [7, 0], [3, 0]],
+        "expected": 20
+    },
 
+    # W = 2
+    {
+        "N": 3,
+        "W": 2,
+        "matrix": [[4, 0], [9, 0], [2, 0]],
+        "expected": 9
+    },
+    {
+        "N": 4,
+        "W": 2,
+        "matrix": [[6, 0], [5, 0], [8, 0], [3, 0]],
+        "expected": 14
+    },
+    {
+        "N": 4,
+        "W": 2,
+        "matrix": [[6, 1], [5, 0], [8, 0], [3, 1]],
+        "expected": 9
+    },
+    {
+        "N": 4,
+        "W": 2,
+        "matrix": [[2, 1], [9, 0], [4, 0], [7, 0]],
+        "expected": 9
+    },
+
+    # W = 3
+    {
+        "N": 5,
+        "W": 3,
+        "matrix": [[2, 0], [10, 0], [7, 0], [9, 0], [4, 0]],
+        "expected": 25
+    },
+    {
+        "N": 6,
+        "W": 3,
+        "matrix": [[5, 0], [1, 1], [8, 0], [6, 0], [4, 1], [9, 0]],
+        "expected": 22
+    },
+    {
+        "N": 7,
+        "W": 3,
+        "matrix": [[2, 0], [9, 0], [3, 0], [8, 0], [5, 0], [7, 0], [4, 0]],
+        "expected": 30
+    },
+]
 sol = Solution()
 
 for idx, tc in enumerate(test_cases, 1):
