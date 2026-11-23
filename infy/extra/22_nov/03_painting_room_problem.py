@@ -83,3 +83,30 @@
 
 
 # Minimum cost = 21.
+class Solution:
+    def minCost(self, N, a, b, S, litres):
+        # Write your logic here
+        pass
+
+
+test_cases = [
+    # N, a, b, S, litres, expected
+    (3, 4, 10, 3, [2, 1, 3], 20),
+    (3, 3, 12, 5, [2, 1, 4], 18),
+    (4, 5, 8, 4, [3, 2, 1, 3], 21),
+    (2, 6, 10, 2, [2, 3], 26),
+    (2, 3, 20, 4, [2, 4], 18),
+    (1, 5, 12, 4, [3], 12),
+]
+
+sol = Solution()
+
+for idx, (N, a, b, S, litres, expected) in enumerate(test_cases, 1):
+    actual = sol.minCost(N, a, b, S, litres)
+
+    if actual == expected:
+        print(f"Test Case {idx}: PASS")
+    else:
+        print(f"Test Case {idx}: FAIL")
+        print(f"Expected: {expected}")
+        print(f"Actual:   {actual}")
