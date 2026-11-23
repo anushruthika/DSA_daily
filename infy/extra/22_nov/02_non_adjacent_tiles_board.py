@@ -72,19 +72,57 @@
 # Explanation: There are 11 valid ways to tile a 2 × 4 board while ensuring no two single tiles share an edge.
 class Solution:
     def countWays(self, N):
-        # Write your logic here
-        pass
-
+        matrix = [[None]*N for _ in range(2)]
+        def func(n,row):
+            # print(n,row)
+            if row == 2:
+                return 1
+            if n == N:
+                return func(0,row+1)
+            if matrix[row][n]!=None:
+                return func(n + 1, row)
+            count_s = 0
+            count_dh= 0
+            count_dv = 0
+            # print("easy")
+            if row == 0 and ((n>=1 and matrix[row][n-1]!="S") or n==0):
+                    matrix[row][n] = "S"
+                    # print(matrix,n)
+                    count_s = func(n+1,row)
+                    # print("test")
+                    matrix[row][n] = None
+            elif row >=1 :
+                if (n == 0 and matrix[0][n]!="S") or n>=1 and matrix[0][n]!="S" and matrix[row][n-1]!="S":
+                    matrix[row][n] = "S"
+                    count_s = func(n+1,row)
+                    matrix[row][n] = None
+            # print("testing",n,N-2)
+            if  n<=N-2 and matrix[row][n]==None and matrix[row][n+1]==None:
+                matrix[row][n] = "F"
+                matrix[row][n+1] = "F"
+                count_dh = func(n+2,row)
+                matrix[row][n] = None
+                matrix[row][n+1] = None
+            # print("vtesting",row,N-2)
+            if row ==0 and matrix[row][n] == None and matrix[row+1][n] == None:
+                matrix[row][n] = "F"
+                matrix[row+1][n] = "F"
+                count_dv = func(n+1,row)
+                matrix[row][n] = None
+                matrix[row+1][n] = None
+                
+            return count_s+count_dv+count_dh   
+        return func(0,0)        
 
 test_cases = [
     (1, 1),
     (2, 2),
     (3, 5),
     (4, 11),
-    (5, 21),
-    (6, 43),
-    (7, 85),
-    (8, 171),
+    (5, 24),
+    (6, 51),
+    (7, 109),
+    (8, 234),
 ]
 
 sol = Solution()
