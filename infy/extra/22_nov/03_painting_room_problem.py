@@ -85,8 +85,21 @@
 # Minimum cost = 21.
 class Solution:
     def minCost(self, N, a, b, S, litres):
-        # Write your logic here
-        pass
+        T = sum(litres)
+
+        # Buy everything using single packs
+        single_cost = T * a
+
+        # Buy bulk packs and cover the remainder with singles
+        bulk_count = T // S
+        remainder = T % S
+
+        mixed_cost = bulk_count * b + remainder * a
+
+        # Buy one extra bulk pack instead of singles for remainder
+        extra_bulk_cost = (bulk_count + 1) * b
+
+        return min(single_cost, mixed_cost, extra_bulk_cost)
 
 
 test_cases = [
