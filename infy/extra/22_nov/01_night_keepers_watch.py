@@ -101,3 +101,62 @@
 # However, night 1 has a storm, so the keeper must stay alert.
 # Both rules cannot be satisfied.
 # Therefore, return -1.
+
+class Solution:
+    def maxPoints(self, N, W, matrix):
+        # Write your logic here
+        pass
+
+
+# Sample test cases
+test_cases = [
+    {
+        "N": 5,
+        "W": 2,
+        "matrix": [
+            [5, 0],
+            [1, 0],
+            [4, 1],
+            [3, 0],
+            [6, 0]
+        ],
+        "expected": 15
+    },
+    {
+        "N": 4,
+        "W": 3,
+        "matrix": [
+            [3, 0],
+            [8, 0],
+            [2, 0],
+            [7, 0]
+        ],
+        "expected": 18
+    },
+    {
+        "N": 3,
+        "W": 1,
+        "matrix": [
+            [5, 0],
+            [4, 1],
+            [6, 0]
+        ],
+        "expected": -1
+    }
+]
+
+sol = Solution()
+
+for idx, tc in enumerate(test_cases, 1):
+    actual = sol.maxPoints(
+        tc["N"],
+        tc["W"],
+        tc["matrix"]
+    )
+
+    if actual == tc["expected"]:
+        print(f"Test Case {idx}: PASS")
+    else:
+        print(f"Test Case {idx}: FAIL")
+        print("Expected:", tc["expected"])
+        print("Actual:", actual)
